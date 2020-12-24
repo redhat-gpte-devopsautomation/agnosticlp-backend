@@ -1,0 +1,3 @@
+replicas: 1
+deployment: all #all- separated
+name: classroom
