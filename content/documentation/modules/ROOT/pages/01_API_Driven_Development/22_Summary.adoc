@@ -1,0 +1,16 @@
+:data-uri:
+:noaudio:
+
+== Summary
+
+* API First Design
+* OpenAPI
+* Mocking
+* Contract Testing
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

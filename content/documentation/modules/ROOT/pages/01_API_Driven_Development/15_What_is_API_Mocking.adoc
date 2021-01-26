@@ -1,0 +1,17 @@
+:data-uri:
+:noaudio:
+
+== What Is API Mocking?
+
+* Imitate a real API server by providing realistic responses to requests
+
+* Instead of using an actual software component – a mock/replacement version of that API is created and used instead. 
+
+* The mock functions as the original API, but lacks many of the functional and non-functional characteristics of the original component. 
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

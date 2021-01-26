@@ -1,0 +1,15 @@
+:data-uri:
+:noaudio:
+
+== Different Approaches For Api Development
+
+* When developing APIs, there are different approaches
+** Code First
+** API First
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

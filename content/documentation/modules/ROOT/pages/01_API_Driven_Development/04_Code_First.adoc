@@ -1,0 +1,18 @@
+:data-uri:
+:noaudio:
+
+== Code First
+
+* Backend Developer creates code
+* Backend Developer iterates development
+* Backend Developer create API Contract
+* Frontend Developer uses API
+
+image::images/slides/code-first-timeline.png[width=600]
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]
