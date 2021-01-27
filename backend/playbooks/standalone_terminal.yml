@@ -1,0 +1,22 @@
+- hosts: localhost
+  connection: local
+  vars_files:
+    - ../input/input.yml
+  tasks:
+  - name: input_list
+    ansible.builtin.debug:
+      msg: "{{ item }}"
+    with_items: "{{ assets }}"
+  - name: docker login
+    community.docker.docker_login:
+      registry: quay.io
+      username: varodrig@redhat.com
+      password: 
+      config_path: /tmp/.mydockercfg
+  - name: Create the terminal container
+    community.general.docker_container:
+      name: terminal
+      image: "{{ assets[0].source}}"
+      ports:
+      # Publish container port 9000 as host port 8080
+       - "{{ assets[0].ports[0]}}"

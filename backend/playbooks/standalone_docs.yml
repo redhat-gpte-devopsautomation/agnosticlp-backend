@@ -1,0 +1,39 @@
+- hosts: localhost
+  connection: local
+  vars_files:
+    - ../input/input.yml
+  tasks:
+  - name: input_list
+    ansible.builtin.debug:
+      msg: "{{ item }}"
+    with_items: "{{ assets }}"
+  - name: input_list -> loop
+    ansible.builtin.debug:
+      msg: "{{ assets[1].name}}"
+    loop:
+      -  "{{ assets[1]}}"
+  - name: Pull an image
+    community.general.docker_image:
+      name: "{{ assets[1].source}}"
+      source: pull
+  - name: docker login
+    community.docker.docker_login:
+      registry: quay.io
+      username: varodrig@redhat.com
+      password: 
+      config_path: /tmp/.mydockercfg
+ 
+  - name: build an image
+    community.general.docker_image:
+      build: 
+       path: "{{ assets[1].dockerFile}}"
+      name: "quay.io/varodrig/containers-lab:latest"
+      push: yes
+      source: build
+  - name: Create the terminal container
+    community.general.docker_container:
+      name: terminal
+      image: "quay.io/varodrig/containers-lab:latest"
+      ports:
+      # Publish container port 9000 as host port 8080
+       - "10080:10080"
