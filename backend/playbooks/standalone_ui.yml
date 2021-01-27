@@ -1,5 +1,8 @@
 - hosts: localhost
   connection: local
+  vars:
+    app_path: "../frontend/web_app"
+    image_registry_path: "quay.io/varodrig/containers-lab-frontend:latest"
   tasks:
   - name: docker login
     community.docker.docker_login:
@@ -10,14 +13,14 @@
   - name: build the UI image
     community.general.docker_image:
       build: 
-       path: ../frontend/web_app
-      name: "quay.io/varodrig/containers-lab-frontend:latest"
+       path: "{{ app_path }}"
+      name: "{{ image_registry_path }}"
       push: yes
       source: build
   - name: Create the UI container
     community.general.docker_container:
       name: frontend
-      image: "quay.io/varodrig/containers-lab-frontend:latest"
+      image: "{{ image_registry_path }}"
       ports:
       # Publish container port 9000 as host port 8080
        - "80:80"
