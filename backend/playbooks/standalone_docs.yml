@@ -2,6 +2,9 @@
   connection: local
   vars_files:
     - ../input/input.yml
+  vars:
+    app_path: "../content/web_app"
+    image_registry_path: "quay.io/varodrig/containers-lab-frontend:latest"
   tasks:
   - name: input_list
     ansible.builtin.debug:
@@ -12,25 +15,20 @@
       msg: "{{ assets[1].name}}"
     loop:
       -  "{{ assets[1]}}"
-  - name: Pull an image
-    community.general.docker_image:
-      name: "{{ assets[1].source}}"
-      source: pull
   - name: docker login
     community.docker.docker_login:
       registry: quay.io
       username: varodrig@redhat.com
       password: 
       config_path: /tmp/.mydockercfg
- 
   - name: build an image
     community.general.docker_image:
       build: 
-       path: "{{ assets[1].dockerFile}}"
+       path: "{{ assets[1]}}"
       name: "quay.io/varodrig/containers-lab:latest"
       push: yes
       source: build
-  - name: Create the terminal container
+  - name: Create the content container
     community.general.docker_container:
       name: terminal
       image: "quay.io/varodrig/containers-lab:latest"

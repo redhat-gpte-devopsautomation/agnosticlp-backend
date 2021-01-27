@@ -10,14 +10,14 @@
       username: varodrig@redhat.com
       password: 
       config_path: /tmp/.mydockercfg
-  - name: build the UI image
+  - name: build the frontend image
     community.general.docker_image:
       build: 
        path: "{{ app_path }}"
       name: "{{ image_registry_path }}"
       push: yes
       source: build
-  - name: Create the UI container
+  - name: Create the frontend container
     community.general.docker_container:
       name: frontend
       image: "{{ image_registry_path }}"

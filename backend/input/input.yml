@@ -7,7 +7,7 @@ assets:
     dockerFile: ./docker_files/Dockerfile
   - name: content
     method: S2I
-    source: ../content/
+    source: ../content/gh-pages
     ports:
-      - "10080:10080"
+      - "8080:8080"
     dockerFile: ./docker_files/Dockerfile
