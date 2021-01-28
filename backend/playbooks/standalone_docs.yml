@@ -55,6 +55,7 @@
       tag: latest
       push: yes
       source: build
+    when: "{{ assets[1].method == source }}"
 
   - name: Create the content container
     community.general.docker_container:
