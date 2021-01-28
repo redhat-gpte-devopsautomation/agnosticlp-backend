@@ -3,8 +3,7 @@
   vars_files:
     - ../input/input.yml
   vars:
-    app_path: "../content/web_app"
-    image_registry_path: "quay.io/varodrig/containers-lab-frontend:latest"
+    image_registry_path: "quay.io/varodrig/containers-lab:latest"
   tasks:
   - name: input_list
     ansible.builtin.debug:
@@ -12,7 +11,7 @@
     with_items: "{{ assets }}"
   - name: input_list -> loop
     ansible.builtin.debug:
-      msg: "{{ assets[1].name}}"
+      msg: "{{ assets[1].source }}"
     loop:
       -  "{{ assets[1]}}"
   - name: docker login
@@ -24,14 +23,14 @@
   - name: build an image
     community.general.docker_image:
       build: 
-       path: "{{ assets[1]}}"
-      name: "quay.io/varodrig/containers-lab:latest"
+       path: "{{ assets[1].source }}"
+      name: "{{ image_registry_path }}"
       push: yes
       source: build
   - name: Create the content container
     community.general.docker_container:
       name: docs
-      image: "quay.io/varodrig/containers-lab:latest"
+      image: "{{ image_registry_path }}"
       ports:
       # Publish container port 9000 as host port 8080
-       - "{{ assets[1].ports[0]}}"
+       - "{{ assets[1].ports[0] }}"
