@@ -23,14 +23,14 @@
     ansible.builtin.debug:
       msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
 
-  - name: Stop a container
+  - name: Stop the container if exists before creation
     community.general.docker_container:
       name: "{{ container_name }}"
       state: absent
       force_kill: yes
     when: "{{ result.exists }}"
 
-  - name: build the frontend image
+  - name: Build the frontend image
     community.general.docker_image:
       build: 
        path: "{{ app_path }}"

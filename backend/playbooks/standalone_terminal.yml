@@ -27,7 +27,7 @@
     ansible.builtin.debug:
       msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
 
-  - name: Stop a container
+  - name: Stop the container if exists before creation
     community.general.docker_container:
       name: "{{ container_name }}"
       state: absent
