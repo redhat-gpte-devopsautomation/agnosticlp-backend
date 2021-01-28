@@ -9,5 +9,5 @@ assets:
     method: S2I
     source: ../../content/gh-pages
     ports:
-      - "80:80"
+      - "8080:80"
     dockerFile: ./docker_files/Dockerfile
