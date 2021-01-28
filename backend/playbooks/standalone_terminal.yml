@@ -1,3 +1,4 @@
+- import_playbook: common.yml
 - hosts: localhost
   connection: local
   vars_files:
@@ -10,8 +11,8 @@
   - name: docker login
     community.docker.docker_login:
       registry: quay.io
-      username: varodrig@redhat.com
-      password: 
+      username: "{{ username }}"
+      password: "{{ password }}"
       config_path: /tmp/.mydockercfg
   - name: Create the terminal container
     community.general.docker_container:

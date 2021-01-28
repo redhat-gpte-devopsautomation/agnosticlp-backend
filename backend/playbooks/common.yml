@@ -1,0 +1,10 @@
+  - hosts: all
+    vars_prompt:
+    - name: username
+      prompt: What is your Quay's username?
+      private: no
+    - name: Make sure we can use htpasswd module
+      apt: "pkg=python-passlib state=installed"
+    - name: password
+      prompt: What is your Quay's password?
+      private: yes
