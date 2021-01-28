@@ -4,13 +4,32 @@
   vars:
     app_path: "../../frontend/web_app"
     image_registry_path: "quay.io/varodrig/containers-lab-frontend:latest"
+    container_name: "frontend"
+  
   tasks:
   - name: docker login
     community.docker.docker_login:
       registry: quay.io
-      username: "{{ username }}"
+      username: "{{ username }}" 
       password: "{{ password }}"
       config_path: /tmp/.mydockercfg
+
+  - name: Get infos on container
+    community.docker.docker_container_info:
+      name: "{{ container_name }}"
+    register: result
+
+  - name: Does container exist?
+    ansible.builtin.debug:
+      msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
+
+  - name: Stop a container
+    community.general.docker_container:
+      name: "{{ container_name }}"
+      state: absent
+      force_kill: yes
+    when: "{{ result.exists }}"
+
   - name: build the frontend image
     community.general.docker_image:
       build: 
@@ -18,12 +37,12 @@
       name: "{{ image_registry_path }}"
       push: yes
       source: build
+
   - name: Create the frontend container
     community.general.docker_container:
-      name: frontend
+      name: "{{ container_name }}"
       image: "{{ image_registry_path }}"
       ports:
-      # Publish container port 9000 as host port 8080
        - "80:80"
 
        

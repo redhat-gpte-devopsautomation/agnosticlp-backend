@@ -3,21 +3,40 @@
   connection: local
   vars_files:
     - ../input/input.yml
+  vars:
+    container_name: "terminal"
   tasks:
   - name: input_list
     ansible.builtin.debug:
       msg: "{{ item }}"
     with_items: "{{ assets }}"
+  
   - name: docker login
     community.docker.docker_login:
       registry: quay.io
       username: "{{ username }}"
       password: "{{ password }}"
       config_path: /tmp/.mydockercfg
+
+  - name: Get infos on container
+    community.docker.docker_container_info:
+      name: "{{ container_name }}"
+    register: result
+
+  - name: Does container exist?
+    ansible.builtin.debug:
+      msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
+
+  - name: Stop a container
+    community.general.docker_container:
+      name: "{{ container_name }}"
+      state: absent
+      force_kill: yes
+    when: "{{ result.exists }}"
+
   - name: Create the terminal container
     community.general.docker_container:
       name: terminal
       image: "{{ assets[0].source}}"
       ports:
-      # Publish container port 9000 as host port 8080
        - "{{ assets[0].ports[0]}}"
