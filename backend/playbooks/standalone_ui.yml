@@ -1,16 +1,22 @@
-- import_playbook: common.yml
 - hosts: localhost
   connection: local
   vars:
     app_path: "../../frontend/web_app"
     image_registry_path: "quay.io/varodrig/containers-lab-frontend:latest"
-    container_name: "frontend"
-  
+    container_name: "frontend"    
+  vars_prompt:
+    - name: username
+      prompt: What is your Quay's username?
+      private: no
+    - name: password
+      prompt: What is your Quay's password?
   tasks:
+  - debug:
+      msg: 'Username: {{ username }}'
   - name: docker login
     community.docker.docker_login:
       registry: quay.io
-      username: "{{ username }}" 
+      username: "{{ username }}"
       password: "{{ password }}"
       config_path: /tmp/.mydockercfg
 
