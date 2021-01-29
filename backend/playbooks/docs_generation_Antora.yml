@@ -1,0 +1,26 @@
+- hosts: localhost
+  connection: local
+  vars:
+    base_path: ../../content/documentation
+    source: pages
+    root: modules/ROOT
+    destination: build
+  vars_prompt:
+  - name: indexPath
+    prompt: What is your indexFile path? Provide only the path. 
+    # /Users/valentinarodriguez/Documents/workspace/sha-bookbag/agnosticlp-setup/content/documentation/modules/ROOT/pages/
+    private: no
+  - name: indexName
+    prompt: What is your indexFile name? Provide only the name. # 01_1_Environment_Setup_Lab.adoc
+    private: no
+  tasks:
+  - name: Create index.adoc
+    shell: (mv "{{ indexPath }}"/"{{ indexName }}"  "{{ base_path }}"/"{{ root }}"/index.adoc)
+    register: indexFile
+  - debug: msg="{{ indexFile.stdout }}"
+
+  - name: Run Antora for adoc and txt files
+    shell: (cd "{{ base_path }}"; antora --fetch antora-playbook.yml)
+    register: doc
+  - debug: msg="{{ doc.stdout }}"
+
