@@ -9,9 +9,5 @@
     shell: (cd "{{ base_path }}"; asciidoctor -b html5 -R "{{ source }}" --destination-dir "{{ destination }}" '**/*.adoc' '**/*.txt')
     register: doc
   - debug: msg="{{ doc.stdout }}"
-  
-  - name: Run Antora for adoc and txt files
-    shell: (cd "{{ base_path }}"; asciidoctor -b html5 -R "{{ source }}" --destination-dir "{{ destination }}" '**/*.adoc' '**/*.txt')
-    register: doc
-  - debug: msg="{{ doc.stdout }}"
+
 
