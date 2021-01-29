@@ -1,4 +1,3 @@
-- import_playbook: common.yml
 - hosts: localhost
   connection: local
   vars_files:
@@ -10,13 +9,6 @@
     ansible.builtin.debug:
       msg: "{{ item }}"
     with_items: "{{ assets }}"
-  
-  - name: docker login
-    community.docker.docker_login:
-      registry: quay.io
-      username: "{{ username }}"
-      password: "{{ password }}"
-      config_path: /tmp/.mydockercfg
 
   - name: Get infos on container
     community.docker.docker_container_info:
