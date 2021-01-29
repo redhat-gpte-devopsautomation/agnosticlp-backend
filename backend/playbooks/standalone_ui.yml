@@ -1,15 +1,18 @@
 - hosts: localhost
   connection: local
-  vars:
-    app_path: "../../frontend/web_app"
-    image_registry_path: "quay.io/varodrig/containers-lab-frontend:latest"
-    container_name: "frontend"    
   vars_prompt:
     - name: username
       prompt: What is your Quay's username?
       private: no
     - name: password
       prompt: What is your Quay's password?
+    - name: organization
+      prompt: organization/user in Quay?
+      private: no
+  vars:
+    app_path: "../../frontend/web_app"
+    image_registry_path: "quay.io/{{ organization }}/containers-lab-frontend:latest"
+    container_name: "frontend"    
   tasks:
   - debug:
       msg: 'Username: {{ username }}'

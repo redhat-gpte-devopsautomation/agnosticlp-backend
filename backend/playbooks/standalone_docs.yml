@@ -2,16 +2,19 @@
   connection: local
   vars_files:
     - ../input/input.yml
-  vars:
-    image_registry_path: "quay.io/varodrig/containers-lab:latest"
-    image_tag: latest
-    container_name: "docs"
   vars_prompt:
   - name: username
     prompt: What is your Quay's username?
     private: no
   - name: password
     prompt: What is your Quay's password?
+  - name: organization
+    prompt: organization/user in Quay?
+    private: no
+  vars:
+    image_registry_path: "quay.io/{{ organization }}/containers-lab:latest"
+    image_tag: latest
+    container_name: "docs"
   tasks:
   - debug:
       msg: 'Username: {{ username }}'
