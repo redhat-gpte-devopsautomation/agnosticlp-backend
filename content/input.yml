@@ -1,0 +1,5 @@
+- name : Demo
+  guid: sbor
+  jenkins_url: jenkinslalala
+  ocp_username: "sborenst-redhat.com" 
+  user_info_messages: "A bookbag image has been created in project bookbag.\nThe bookbag imagestream is rhtr2020pipelines:latest."

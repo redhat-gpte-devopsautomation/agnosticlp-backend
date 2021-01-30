@@ -2,12 +2,22 @@
   connection: local
   vars:
     base_path: ../../content
-    source: /docs/
+    source: /modules/ROOT/
     destination: output
+
   tasks:
+  - name: Before Ansible 2.3, option 'dest', 'destfile' or 'name' was used instead of 'path'
+    ansible.builtin.replace:
+      path: "{{ base_path }}{{ source }}"
+      regexp: '%guid%'
+      replace: "{{ lookup('env', 'guid') }}" 
+    register: replace
+  - debug: msg="{{ replace.stdout }}"
+
   - name: Run asciidoctor for adoc and txt files
     shell: (cd "{{ base_path }}"; asciidoctor -b html5 -R "{{ source }}" --destination-dir "{{ destination }}" '**/*.adoc')
     register: doc
   - debug: msg="{{ doc.stdout }}"
+
 
 
