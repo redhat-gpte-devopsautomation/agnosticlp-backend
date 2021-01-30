@@ -6,7 +6,7 @@ assets:
       - "10080:10080"
   - name: content
     method: source
-    source: ../../content/gh-pages
+    source: ../../content/build/site
     ports:
       - "8080:80"
     dockerFile: ../docker_files/Dockerfile

@@ -2,11 +2,11 @@
   connection: local
   vars:
     base_path: ../../content
-    source: docs
+    source: /docs/
     destination: output
   tasks:
   - name: Run asciidoctor for adoc and txt files
-    shell: (cd "{{ base_path }}"; asciidoctor -b html5 -R "{{ source }}" --destination-dir "{{ destination }}" '**/*.adoc' '**/*.txt')
+    shell: (cd "{{ base_path }}"; asciidoctor -b html5 -R "{{ source }}" --destination-dir "{{ destination }}" '**/*.adoc')
     register: doc
   - debug: msg="{{ doc.stdout }}"
 

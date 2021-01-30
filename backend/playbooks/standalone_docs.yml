@@ -56,6 +56,11 @@
       force_kill: yes
     when: "{{ result.exists }}"
 
+  - name: Remove image
+    shell: (docker image rm "{{ image_registry_path }}")
+    register: remove
+  - debug: msg="{{ remove.stdout }}"
+
   - name: Build the content image
     community.general.docker_image:
       build: 

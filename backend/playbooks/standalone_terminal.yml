@@ -29,6 +29,6 @@
   - name: Create the terminal container
     community.general.docker_container:
       name: terminal
-      image: "{{ assets[0].source}}"
+      image: "{{ assets[0].source }}"
       ports:
-       - "{{ assets[0].ports[0]}}"
+       - "{{ assets[0].ports[0] }}"

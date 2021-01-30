@@ -16,12 +16,6 @@
   tasks:
   - debug:
       msg: 'Username: {{ username }}'
-  - name: docker login
-    community.docker.docker_login:
-      registry: quay.io
-      username: "{{ username }}"
-      password: "{{ password }}"
-      config_path: /tmp/.mydockercfg
 
   - name: Get infos on container
     community.docker.docker_container_info:
@@ -39,18 +33,24 @@
       force_kill: yes
     when: "{{ result.exists }}"
 
+  - name: Remove image
+    command: docker image rm "{{ image_registry_path }}"
+    register: remove
+  - debug: msg="{{ remove.stdout }}"
+
   - name: Build the frontend image
     community.general.docker_image:
       build: 
-       path: "{{ app_path }}"
+        path: "{{ app_path }}"
       name: "{{ image_registry_path }}"
       push: yes
       source: build
-
+  
   - name: Create the frontend container
     community.general.docker_container:
       name: "{{ container_name }}"
       image: "{{ image_registry_path }}"
+      pull: yes
       ports:
        - "80:80"
 
