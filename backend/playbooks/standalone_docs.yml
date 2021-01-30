@@ -59,6 +59,7 @@
   - name: Remove image
     shell: (docker image rm "{{ image_registry_path }}")
     register: remove
+    failed_when: remove.rc == 0 or "No such" not in result.stdout
   - debug: msg="{{ remove.stdout }}"
 
   - name: Build the content image
