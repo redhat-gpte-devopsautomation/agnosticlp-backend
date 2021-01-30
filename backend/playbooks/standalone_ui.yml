@@ -36,6 +36,7 @@
   - name: Remove image
     command: docker image rm "{{ image_registry_path }}"
     register: remove
+    failed_when: remove.rc == "No such" not in remove.stdout
   - debug: msg="{{ remove.stdout }}"
 
   - name: Build the frontend image
