@@ -1,0 +1,20 @@
+:data-uri:
+:noaudio:
+
+== Pact Testing Development Process
+
+* On the consumer side, interactions against a mock version of the API are recorded. 
+
+* The pact is shared with the provider. There are different ways to do so. 
+** The Pact ecosystem contains a Pact broker, which acts a a repository for pacts. 
+** A simpler way is to add to pact files to the code base of the API provider.
+
+* The provider verifies the contracts against the implementation 
+** Verifying that the implementation does honor the contracts.
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

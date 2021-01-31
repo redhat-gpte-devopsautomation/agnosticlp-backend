@@ -1,0 +1,15 @@
+:data-uri:
+:noaudio:
+
+== API First Dev Journey Workflow
+
+* This the typical workflow for API First Development.
+
+image::images/slides/dev-journey.png[width=600]
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

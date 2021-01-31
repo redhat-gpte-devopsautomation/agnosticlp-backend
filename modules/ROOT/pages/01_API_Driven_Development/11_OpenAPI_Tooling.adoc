@@ -1,0 +1,26 @@
+:data-uri:
+:noaudio:
+
+== OpenAPI Tooling
+
+* Many tools available to help accelerate development process
+** List available at: https://openapi.tools/
+
+* Editors
+** Create, edit and validate an OpenAPI specification
+** Tools: Apicurio, Apibldr, others ...
+
+* Server Implmentations
+** Generate server code for a number of different languages and frameworks
+** Tools: OpenAPIGenerator, Vert.x Web API Contract, MicroTS, others ...
+
+* Client Implementations
+** Generate client code for a number of different languages and frameworks
+** Tools: OpenAPI Client Generator, APIMatic, others ...
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]
