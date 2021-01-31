@@ -1,0 +1,27 @@
+:data-uri:
+:noaudio:
+
+== Timeout Code Example
+
+* Annotate a method with @Timeout, the execution will be aborted after the defined threshold.
+
+----
+import org.eclipse.microprofile.faulttolerance.Timeout;
+
+@Timeout(500)
+public String callRemoteService() {
+    // call a remote service
+    // it may timeout
+}
+----
+
+* The above code-snippet means the method callRemoteService applies the Timeout policy, which is to fail the execution if the execution takes more than 500ms to complete.
+
+* When a timeout occurs, a TimeoutException is thrown. 
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

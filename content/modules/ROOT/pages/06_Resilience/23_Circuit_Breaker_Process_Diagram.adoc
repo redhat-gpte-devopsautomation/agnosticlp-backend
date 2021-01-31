@@ -1,0 +1,17 @@
+:data-uri:
+:noaudio:
+
+== Circuit Breaker
+
+* Process Diagram
+
+image::images/circuit_breaker_process_diagram.png[width=600]
+
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

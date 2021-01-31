@@ -1,0 +1,33 @@
+:data-uri:
+:noaudio:
+
+== Application Monitoring
+
+* Gathering, processing, storing of metric data about system
+* Blackbox monitoring
+** Tests externally visible behavior as user sees it
+** HTTP endpoints, ICMP, overall response times
+
+* Whitebox monitoring
+** Based on internal system metrics
+** CPU, memory, Java VM, application-specific metrics
+
+* Monitoring data typically stored as time series
+* Requirements for monitoring data:
+** Aggregation
+** Mathematical processing and transformation
+** Examples: Averages, histograms
+
+ifdef::showscript[]
+
+Transcript:
+
+Monitoring is the concept of gathering, processing, and storing metric data about a system. There are two types of monitoring: blackbox monitoring and whitebox monitoring.
+
+Blackbox monitoring tests externally visible behavior as a user sees it. Examples include monitoring HTTP endpoints; Internet Control Message Protocol, or ICMP; and overall response times.
+
+Whitebox monitoring is based on internal system metrics. This includes CPU, memory, Java VM, and application-specific metrics.
+
+Monitoring data is typically stored as a time series. Typical requirements for monitoring data include aggregation and mathematical processing and transformation. Examples of this are averages and histograms.
+
+endif::showscript[]

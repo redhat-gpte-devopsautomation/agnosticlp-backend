@@ -1,0 +1,15 @@
+:data-uri:
+:noaudio:
+
+== SimplyTimed Usecase
+
+* The @SimplyTimed annotation is for marking a constructor or method of an annotated object as simply timed. 
+
+* The metric tracks the count of invocations of the annotated object and tracks how long it took the invocations to complete.
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

@@ -1,0 +1,23 @@
+:data-uri:
+:noaudio:
+
+== Bulkhead Code Example - Semaphore Style
+
+*  Execution happens on the calling thread and the concurrent requests are constrained by the semaphore count.
+
+----
+   @Bulkhead(value = 5)
+   ​public String callRemoteService() {
+        // call a remote service
+        // it may fail
+   ​}
+----
+
+* When using the semaphore approach, on reaching maximum request counter, the extra request will fail with BulkheadException.
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

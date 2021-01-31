@@ -1,0 +1,19 @@
+:data-uri:
+:noaudio:
+
+== What is OIDC?
+
+* Extension of OAuth 2.0 
+* To address authentication usecase
+* OIDC adds
+** ID token
+** Userinfo endpoint for geting more user info
+** Standard set of scopes
+** Standardized implementation
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

@@ -1,0 +1,25 @@
+:data-uri:
+:noaudio:
+
+== Knative Building Blocks
+
+* Creation of a Knative service creates:
+** Configuration
+*** tags deployment to a specific version or latest
+*** separation of code and configuration
+* Revision
+** named group of changes on the service via its configuration
+** Knative service maintains history of revisions
+** configuration change triggers new revision
+* Route
+** DNS endpoint network name
+** default route created
+** multiple named routes
+** traffic can be split to different revisions (fractional traffic)
+
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

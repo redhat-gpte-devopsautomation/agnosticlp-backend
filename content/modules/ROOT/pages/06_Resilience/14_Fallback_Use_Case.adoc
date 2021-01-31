@@ -1,0 +1,22 @@
+:data-uri:
+:noaudio:
+
+== Fallback Use Case
+
+* A Fallback method is invoked if a method annotated with @Fallback completes exceptionally.
+
+* Fallback provides a default / fallback operation if it makes sense for given application problem domain. 
+
+* The Fallback annotation can be used on its own or together with other Fault Tolerance annotations. 
+
+* The fallback is invoked if an exception would be thrown after all other Fault Tolerance processing has taken place.
+
+* For a Retry, Fallback is handled any time the Retry would exceed its maximum number of attempts.
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

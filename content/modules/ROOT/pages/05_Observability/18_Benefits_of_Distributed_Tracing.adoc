@@ -1,0 +1,32 @@
+:data-uri:
+:noaudio:
+
+== Distributed Tracing
+
+.Benefits
+
+[cols="2",caption=""]
+|====
+|Benefit
+|Description
+|Root cause analysis
+a|* Identify where first failure happened
+* Trace contains error code and message
+|Performance optimization
+a|* Identify if service is performing poorly
+* Impact on performance optimization
+|Service dependency visualization
+|
+|====
+
+ifdef::showscript[]
+
+Transcript:
+
+Distributed tracing offers several benefits. It helps with root cause analysis, enabling you to identify where the first failure happened. The trace contains both error code and a message.
+
+Distributed tracing is useful in helping with performance optimization. It lets you identify whether a service is not functioning properly and how that is impacting performance optimization.
+
+Distributed tracing also helps with service dependency visualization.
+
+endif::showscript[]

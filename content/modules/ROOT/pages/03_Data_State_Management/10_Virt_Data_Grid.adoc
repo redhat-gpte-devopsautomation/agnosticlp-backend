@@ -1,0 +1,19 @@
+:data-uri:
+:noaudio:
+
+== Virtualization and Data Grid
+
+* Right store for microservices
+* Virtual DBs
+** DB team creates virtual DBs
+** Applications write to virtual DBs
+** DB team controls physical DBs
+* Data Grid
+** Microservices read and write to in-memory data grids
+** DB downtime does not affect grid availability
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

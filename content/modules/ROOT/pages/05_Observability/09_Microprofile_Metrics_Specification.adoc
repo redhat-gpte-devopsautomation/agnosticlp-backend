@@ -1,0 +1,23 @@
+:data-uri:
+:noaudio:
+
+== Microprofile Metrics Specification
+
+* MicroProfile Metrics is a specification that defines how applications can gather various metrics and statistics
+** Provides a unified way for Microprofile servers to export telemetry data to management agents
+** Developers can use a standard API to expose their telemetry data
+
+* These metrics provide insights into what is happening inside an application
+** Metrics can be read remotely using JSON format or the OpenMetrics format
+** Metrics can be processed by additional tools such as Prometheus and Grafana for analysis and visualisation
+
+* In addition to application-specific metrics, developers can also utilize built-in metrics exposed by various Quarkus extensions
+
+* Microprofile Metrics specification available at: https://microprofile.io/project/eclipse/microprofile-metrics
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

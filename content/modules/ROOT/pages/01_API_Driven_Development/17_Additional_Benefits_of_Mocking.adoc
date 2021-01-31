@@ -1,0 +1,25 @@
+:data-uri:
+:noaudio:
+
+== Additional Benefits of Mocking
+
+* Faster response time
+** Mocks can give faster response time, since there is minimal network latency
+
+* Mock external components
+** Save costs by not using a external components (if external API is monetized)
+** Avoid API throttling limits
+** Continue development if external API is not developed yet
+
+ * Perform simulations  
+ ** Simulation different response times and error codes
+ ** Observe how your application behaves during unfavorable conditions
+
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

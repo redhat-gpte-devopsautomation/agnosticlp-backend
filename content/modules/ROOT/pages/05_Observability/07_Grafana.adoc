@@ -1,0 +1,27 @@
+:data-uri:
+:noaudio:
+
+== Application Monitoring
+
+.Grafana
+
+* Open source analytics and visualization product
+
+* Allows users to query and visualize metrics
+
+* Can retrieve metrics from multiple data sources:
+** Prometheus
+** ElasticSearch
+** MySQL
+** Others
+
+ifdef::showscript[]
+
+Transcript:
+
+Grafana is an open source analytics and visualization product. Grafana allows users to query and visualize metrics.
+
+Grafana can retrieve metrics from multiple data sources such as Prometheus, ElasticSearch, MySQL, and others.
+
+
+endif::showscript[]

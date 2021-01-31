@@ -1,0 +1,20 @@
+:data-uri:
+:noaudio:
+
+== SSO Key Features
+
+* Identity brokering
+** Create a trust relationship with an external identity provider using OpenID Connect or SAML
+* User federation with LDAP-based directory services
+** Connect to existing user directories
+* Client adapters for JavaEE, Spring, Node.js, more
+** Provide easy access to Keycloak functionality without the complexity of low-level protocols 
+* Event auditing
+** Record user activities such as login/logout
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

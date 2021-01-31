@@ -1,0 +1,17 @@
+:data-uri:
+:noaudio:
+
+== Retry Use Case
+
+* When a call is made to a remote service there may be a failure due to network glitch or an intermittent error.
+
+* A retry policy defines the maximum number of times to attempt a connection to a service if the initial call fails. 
+
+* Retries can enhance service availability and application performance by making sure that calls don’t fail permanently because of temporary problems
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

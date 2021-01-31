@@ -1,0 +1,20 @@
+:data-uri:
+:noaudio:
+
+== Camel K and Knative
+
+* Camel K built from Camel
+* Runs natively on Kubernetes
+* Designed for serverless and microservice architecture
+* Users can run integration code written in Camel DSL on Kubernetes
+----
+ from('timer:tick?period=3s')
+    .setBody().constant('Hello from Camel K')
+    .to('log:info')
+----
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

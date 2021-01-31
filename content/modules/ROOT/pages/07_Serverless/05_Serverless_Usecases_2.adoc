@@ -1,0 +1,19 @@
+:data-uri:
+:noaudio:
+
+== Serverless Usecases II
+
+* Processing events and SaaS 
+** Github, Twilio, etc.
+** Serverless associates functions with emitted events
+* Multi-language applications
+** Fosters polyglot teams and seamless integration of services into an application
+* Continuous Integration/Continuous Deployment
+** PRs can trigger running automated tests
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

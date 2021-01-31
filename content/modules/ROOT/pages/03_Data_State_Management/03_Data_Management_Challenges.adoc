@@ -1,0 +1,21 @@
+:data-uri:
+:noaudio:
+
+== Data State Management: Challenges & Solutions Part 1
+
+* Defining microservice boundaries
+** Identify boundaries of domain model and data
+** Important to identify data context
+*** user in an identity system, customer in CRM, buyer in an ordering system
+** Reduce coupling between microservices
+* Retrieving data from multiple microservices
+** API Gateway Pattern
+*** aggregation microservice
+*** avoid chokepoints - implement slice of business gateway
+
+ifdef::showscript[]
+
+Transcript:
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/distributed-data-management
+
+endif::showscript[]

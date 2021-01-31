@@ -1,0 +1,22 @@
+:data-uri:
+:noaudio:
+
+== Knative Usage Patterns : channel and subscription
+
+* Channel connects to backends for sourcing events
+** InMemory
+** Kafka
+** GCP PubSub
+* Subscriptions
+** Enable subscribers to receive and process messages
+** Sink services
+* Message from channel formatted as CloudEvent
+* No ability to filter messages in this architecture
+
+image::images/knative-channels-subs.png[]
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

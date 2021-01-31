@@ -1,0 +1,20 @@
+:data-uri:
+:noaudio:
+
+== Knative Usage Patterns : brokers and triggers
+* Similar to channels and subscriptions
+* Support for message filtering
+* Filtering allows subscribers to show interest in a set of messages
+* Implicit creation of Knative Eventing channel for each broker
+* Trigger gets subscribed to broker
+* Trigger applies filter
+* Filter applied to the CloudEvent
+* Only filtered messages passed on to the subscribing service
+
+image::images/knative-brokers-triggers.png[]
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

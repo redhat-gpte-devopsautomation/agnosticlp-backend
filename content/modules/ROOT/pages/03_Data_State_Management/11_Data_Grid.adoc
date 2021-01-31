@@ -1,0 +1,22 @@
+:data-uri:
+:noaudio:
+
+== Red Hat Data Grid
+
+* Distributed, in-memory key-value store
+* Store information in memory
+** Low latency
+** High throughput
+* Information synchronized across multiple servers
+* Easily clustered and scaled
+** Reliable access
+** Continuously available
+** Linearly scalable
+* Data caching, transient data storage
+* Can also be used as a primary NoSQL data store
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

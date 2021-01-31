@@ -1,0 +1,17 @@
+:data-uri:
+:noaudio:
+
+== SSO Central Authentication
+
+* Application makes a request to the SSO server and receives a token 
+* Application sends the token to API/Service of interest
+* API/Services verifies the token with the SSO server
+
+image::images/centr-authn.png[350,450]
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

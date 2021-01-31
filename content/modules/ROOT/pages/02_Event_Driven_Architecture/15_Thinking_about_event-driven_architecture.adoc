@@ -1,0 +1,23 @@
+:data-uri:
+:noaudio:
+
+== Thinking About Event-driven Architecture
+
+* To truly gain benefits of event-driven, one must rethink the architecture
+
+* Re-cast the architecture in terms of events 
+
+* Instead of using ad-hoc events when needed
+
+* Events become the language to describe interactions of the system
+
+* Design appropriate software architecture and components to handle those events
+
+ifdef::showscript[]
+
+Transcript:
+
+To truly gain benefits of event-driven, one must rethink things - and re-cast their architectures in terms of events, so that instead of using ad-hoc events when needed, events become the language in which an application’s behavior is expressed, and describe interactions of the system. This can then be used to design an appropriate software architecture and components to handle those events. 
+
+
+endif::showscript[]

@@ -1,0 +1,14 @@
+:data-uri:
+:noaudio:
+
+== Retry Process Diagram
+
+image::images/retry.png[width=600]
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

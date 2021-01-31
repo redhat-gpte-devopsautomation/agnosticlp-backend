@@ -1,0 +1,21 @@
+:data-uri:
+:noaudio:
+
+== Data State Management: Challenges & Solutions Part II
+
+* Retrieving data from multiple microservices
+** Command and Query Responsibility Separation
+** Materialized views
+** E.g. usage: populating mobile app screen data
+** More optimized than a complex join at runtime
+* Consistency across microservices
+** How to propagate changes across different services
+** ACID v/s eventual consistency
+** Modern architecture favor eventual consistency
+** Achieved by asynchronous messaging
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

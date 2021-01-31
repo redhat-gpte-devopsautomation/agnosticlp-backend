@@ -1,0 +1,19 @@
+:data-uri:
+:noaudio:
+
+== SSO Central Authorization
+
+* RH-SSO supports fine-grained authorization policies
+* Based on admin and REST APIs
+* Provides necessary means to:
+** Create permissions for protected resource
+** Associate those premissions with authorization policies
+** Enforce authorization decisions in servers and applications
+
+image::images/centr-authz.png[375,475]
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

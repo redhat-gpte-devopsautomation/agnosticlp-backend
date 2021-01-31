@@ -1,0 +1,31 @@
+:data-uri:
+:noaudio:
+
+== Retry Configuration
+
+Following configuration options are available for @Retry
+
+** maxRetries: the maximum retries
+
+** delay: delays between each retry
+
+** delayUnit: the delay unit
+
+** maxDuration: maximum duration to perform the retry for.
+
+** durationUnit: duration unit
+
+** jitter: the random vary of retry delays
+
+** jitterDelayUnit: the jitter unit
+
+** retryOn: specify the failures to retry on
+
+** abortOn: specify the failures to abort on
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]
