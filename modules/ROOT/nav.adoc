@@ -1,9 +1,1 @@
-* xref:index.adoc[Lab Overview]
-* xref:user_information.adoc[Information about your environment]
-* xref:run_jenkins_pipeline.adoc[Execute Jenkins pipeline]
-* xref:create_tekton_pipeline.adoc[Create OpenShift pipeline]
-* xref:test_tekton_tasks.adoc[Test OpenShift pipeline tasks]
-* xref:run_tekton_pipeline.adoc[Run OpenShift pipeline]
-* xref:add_webhook.adoc[Add Webhook]
-
-
+* xref:*[Lab Overview]
