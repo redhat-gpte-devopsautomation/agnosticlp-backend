@@ -1,7 +1,7 @@
 :data-uri:
 :noaudio:
 
-== Course Navigation Tips
+== Course Navigation Tips -test
 
 * To receive credit for completing a module, you must click the *Complete Module* button on the Module Completion slide:
 +
