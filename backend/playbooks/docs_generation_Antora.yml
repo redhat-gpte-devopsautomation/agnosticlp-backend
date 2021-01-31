@@ -29,8 +29,8 @@
     when: "{{ updateRepo == 'Y' }}"
 
   
-  #- name: Create index.adoc
-   # shell: (find . "{{ base_path }}{{ root }}"/pages/ -name f  \("{{ indexName }}"\) -exec mv -P {} "{{ base_path }}{{ root }}"/index.adoc \;)
+  - name: Create index.adoc
+    shell:  (find "{{ base_path }}{{ root }}/pages" -name "{{ indexName }}" -exec mv {} "{{ base_path }}{{ root }}/index.adoc" \;)
     #register: indexFile
   #- debug: msg="{{ indexFile.stdout }}"
 
