@@ -5,19 +5,42 @@
     source: pages
     root: modules/ROOT
     destination: build
+    path_origin: https://github.com/redhat-gpe/cnd_advanced_v2
   vars_prompt:
-  - name: indexPath
-    prompt: What is your indexFile path? Provide only the path. 
-    # ../../content/modules/ROOT/pages
-    private: no
-  - name: indexName
-    prompt: What is your indexFile name? Provide only the name. # 01_1_Environment_Setup_Lab.adoc
-    private: no
+    - name: indexPath
+      prompt: What is your indexFile path? Provide only the path. Relative path. Ex. ../../content/modules/ROOT/pages/01_API_Driven_Development
+      # ../../content/modules/ROOT/pages
+      private: no
+    - name: indexName
+      prompt: What is your indexFile name? Provide only the name. Ex. 01_1_Environment_Setup_Lab.adoc
+      private: no
+  
   tasks:
+  
+  - name: Download source code from repo
+    shell: (cd tmp; git clone "{{ path_origin }}")
+  
   - name: Create index.adoc
     shell: (mv "{{ indexPath }}"/"{{ indexName }}"  "{{ base_path }}"/"{{ root }}"/index.adoc)
     register: indexFile
   - debug: msg="{{ indexFile.stdout }}"
+
+  - name: remove previous images
+    shell: (find . "{{ base_path }}{{ root }}"/images -type f \( -iname \*.jpg -o -iname \*.png \) -exec rm -P {} \;) 
+    register: cleaning
+  - debug: msg="{{ cleaning.rc }}"
+
+  - name: Move images to content index.adoc
+    shell: (find . "{{ base_path }}{{ root }}"/pages/ -type f \( -iname \*.jpg -o -iname \*.png \) -exec cp -P {} "{{ base_path }}{{ root }}"/images \;) 
+    register: images
+  - debug: msg="{{ images.rc }}"
+
+
+  - name: moving lab docs
+    shell: (find . "{{ base_path }}{{ root }}"/images -type f \( -iname \*.jpg -o -iname \*.png \) -exec rm -P {} \;) 
+    register: cleaning
+  - debug: msg="{{ cleaning.rc }}"
+
 
   - name: Run Antora for adoc and txt files
     shell: (cd "{{ base_path }}"; antora --fetch antora-playbook.yml)
