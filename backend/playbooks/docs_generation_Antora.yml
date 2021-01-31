@@ -7,21 +7,24 @@
     destination: build
     path_origin: https://github.com/redhat-gpe/cnd_advanced_v2
   vars_prompt:
-    - name: indexPath
-      prompt: What is your indexFile path? Provide only the path. Relative path. Ex. ../../content/modules/ROOT/pages/01_API_Driven_Development
-      # ../../content/modules/ROOT/pages
-      private: no
     - name: indexName
-      prompt: What is your indexFile name? Provide only the name. Ex. 01_1_Environment_Setup_Lab.adoc
+      prompt: What is your main file name (index.adoc)? Provide only the name. Ex. 01_1_Environment_Setup_Lab.adoc
       private: no
   
   tasks:
   
   - name: Download source code from repo
     shell: (cd tmp; git clone "{{ path_origin }}")
+    register: download
+    failed_when: download.rc == "already exists and is not an empty directory" not in download.rc
+
+  - name: moving lab docs
+    shell: (cp -r tmp/cnd_advanced_v2/modules/  "{{ base_path }}{{ root }}"/pages/; rm -rf tmp) 
+    register: cleaning
+  - debug: msg="{{ cleaning.rc }}"
   
   - name: Create index.adoc
-    shell: (mv "{{ indexPath }}"/"{{ indexName }}"  "{{ base_path }}"/"{{ root }}"/index.adoc)
+    shell: (find . "{{ base_path }}{{ root }}"/pages/ -name f  \("{{ indexName }}"\) -exec mv -P {} "{{ base_path }}{{ root }}"/index.adoc \;)
     register: indexFile
   - debug: msg="{{ indexFile.stdout }}"
 
@@ -30,7 +33,7 @@
     register: cleaning
   - debug: msg="{{ cleaning.rc }}"
 
-  - name: Move images to content index.adoc
+  - name: Move images to content folder
     shell: (find . "{{ base_path }}{{ root }}"/pages/ -type f \( -iname \*.jpg -o -iname \*.png \) -exec cp -P {} "{{ base_path }}{{ root }}"/images \;) 
     register: images
   - debug: msg="{{ images.rc }}"
@@ -38,7 +41,7 @@
 
   - name: moving lab docs
     shell: (find . "{{ base_path }}{{ root }}"/images -type f \( -iname \*.jpg -o -iname \*.png \) -exec rm -P {} \;) 
-    register: cleaning
+    register: docs
   - debug: msg="{{ cleaning.rc }}"
 
 
