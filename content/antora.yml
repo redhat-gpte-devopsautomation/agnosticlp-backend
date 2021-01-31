@@ -1,6 +1,0 @@
-name: agnosticlp-content
-title: RHTR 2020 - From Jenkins to Tekton
-version: 1.0
-start_page: ROOT:index.adoc
-nav:
-- modules/ROOT/nav.adoc
