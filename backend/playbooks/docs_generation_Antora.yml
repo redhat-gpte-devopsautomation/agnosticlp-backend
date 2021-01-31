@@ -6,10 +6,14 @@
     root: modules/ROOT
     destination: build
     path_origin: https://github.com/redhat-gpe/cnd_advanced_v2
+    git_msg: "Generated content"
   vars_prompt:
     - name: indexName
       prompt: What is your main file name (index.adoc)? Provide only the name. Ex. 01_1_Environment_Setup_Lab.adoc
       private: no
+    - name: updateRepo
+      prompt: Do you need to download your repo? Y/N
+      private: no  
   
   tasks:
   
@@ -17,11 +21,13 @@
     shell: (git clone "{{ path_origin }}" tmp; mv temp/.git code/.git)
     register: download
     failed_when: download.rc == "already exists and is not an empty directory" not in download.rc
+    when: "{{ updateRepo == 'Y' }}"
 
   - name: moving lab docs
     shell: (cp -r tmp/modules/  "{{ base_path }}{{ root }}"/pages/) 
     register: cleaning
   - debug: msg="{{ cleaning.rc }}"
+    when: "{{ updateRepo == 'Y' }}"
   
   #- name: Create index.adoc
    # shell: (find . "{{ base_path }}{{ root }}"/pages/ -name f  \("{{ indexName }}"\) -exec mv -P {} "{{ base_path }}{{ root }}"/index.adoc \;)
@@ -32,6 +38,7 @@
     shell: (find . "{{ base_path }}{{ root }}"/pages/ -type f \( -iname \*.jpg -o -iname \*.png \) -exec cp -P {} "{{ base_path }}{{ root }}"/images \;) 
     register: images
   - debug: msg="{{ images.rc }}"
+    when: "{{ updateRepo == 'Y' }}"
 
 
  # - name: moving lab docs
@@ -39,10 +46,8 @@
    # register: docs
   #- debug: msg="{{ cleaning.rc }}"
 
-  - name: git push
-    include_role:
-      name: ansible-git
-      tasks_from: push
+  - name: Updating content in the repository (Antora)
+    shell: (rootPath=`pwd`;git add $rootPath/../../"{{ root }}"; git commit -m "{{ git_msg }}"; git push)
 
   - name: Run Antora for adoc files
     shell: (cd ../.. ;antora --fetch antora-playbook.yml)
