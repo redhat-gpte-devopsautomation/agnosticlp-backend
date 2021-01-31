@@ -27,12 +27,9 @@
   - name: moving lab docs
     shell: (find . "{{ path_tmp }}" -type f \( -iname \*_Lab.adoc  \) -exec cp -P {} "{{ base_path }}{{ root }}/pages/" \;) 
     when: "{{ updateRepo == 'Y' }}"
-
   
   - name: Create index.adoc
     shell:  (find "{{ base_path }}{{ root }}/pages" -name "{{ indexName }}" -exec mv {} "{{ base_path }}{{ root }}/index.adoc" \;)
-    #register: indexFile
-  #- debug: msg="{{ indexFile.stdout }}"
 
   - name: Move images to content folder
     shell: (find . "{{ base_path }}{{ root }}"/pages/ -type f \( -iname \*.jpg -o -iname \*.png \) -exec cp -P {} "{{ base_path }}{{ root }}"/images \;) 
@@ -40,6 +37,8 @@
   - debug: msg="{{ images.rc }}"
     when: "{{ updateRepo == 'Y' }}"
 
+  - name: create nav adoc file
+    shell:  (sh nav.sh)
 
   - name: Updating content in the repository (Antora)
     shell: (rootPath=`pwd`;git add $rootPath/../../"{{ root }}"; git commit -m "{{ git_msg }}"; git push)
