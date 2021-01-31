@@ -9,7 +9,7 @@
   - name: Before Ansible 2.3, option 'dest', 'destfile' or 'name' was used instead of 'path'
     ansible.builtin.replace:
       path: "{{ base_path }}{{ source }}pages/user_information.adoc"
-      regexp: '%guid%'
+      regexp: ^([%]).*\1$'
       replace: "{{ lookup('env', 'guid') }}" 
     register: replace
   - debug: msg="{{ replace }}"

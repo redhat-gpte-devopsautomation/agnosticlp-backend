@@ -39,6 +39,10 @@
    # register: docs
   #- debug: msg="{{ cleaning.rc }}"
 
+  - name: git push
+    include_role:
+      name: ansible-git
+      tasks_from: push
 
   - name: Run Antora for adoc files
     shell: (cd ../.. ;antora --fetch antora-playbook.yml)
