@@ -7,6 +7,7 @@
     destination: build
     path_origin: https://github.com/redhat-gpe/cnd_advanced_v2
     git_msg: "Generated content"
+    path_tmp: tmp
   vars_prompt:
     - name: indexName
       prompt: What is your main file name (index.adoc)? Provide only the name. Ex. 01_1_Environment_Setup_Lab.adoc
@@ -18,13 +19,13 @@
   tasks:
   
   - name: Download source code from repo
-    shell: (git clone "{{ path_origin }}" tmp; mv temp/.git code/.git)
+    shell: (git clone "{{ path_origin }}" "{{ path_tmp }}"; mv temp/.git code/.git)
     register: download
     failed_when: download.rc == "already exists and is not an empty directory" not in download.rc
     when: "{{ updateRepo == 'Y' }}"
 
   - name: moving lab docs
-    shell: (cp -r tmp/modules/  "{{ base_path }}{{ root }}"/pages/) 
+    shell: (cp -r "{{ path_tmp }}"/modules/  "{{ base_path }}{{ root }}"/pages/) 
     register: cleaning
   - debug: msg="{{ cleaning.rc }}"
     when: "{{ updateRepo == 'Y' }}"
