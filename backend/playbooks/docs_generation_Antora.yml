@@ -14,24 +14,19 @@
   tasks:
   
   - name: Download source code from repo
-    shell: (cd tmp; git clone "{{ path_origin }}")
+    shell: (git clone "{{ path_origin }}" tmp; mv temp/.git code/.git)
     register: download
     failed_when: download.rc == "already exists and is not an empty directory" not in download.rc
 
   - name: moving lab docs
-    shell: (cp -r tmp/cnd_advanced_v2/modules/  "{{ base_path }}{{ root }}"/pages/; rm -rf tmp) 
+    shell: (cp -r tmp/modules/  "{{ base_path }}{{ root }}"/pages/) 
     register: cleaning
   - debug: msg="{{ cleaning.rc }}"
   
-  - name: Create index.adoc
-    shell: (find . "{{ base_path }}{{ root }}"/pages/ -name f  \("{{ indexName }}"\) -exec mv -P {} "{{ base_path }}{{ root }}"/index.adoc \;)
-    register: indexFile
-  - debug: msg="{{ indexFile.stdout }}"
-
-  - name: remove previous images
-    shell: (find . "{{ base_path }}{{ root }}"/images -type f \( -iname \*.jpg -o -iname \*.png \) -exec rm -P {} \;) 
-    register: cleaning
-  - debug: msg="{{ cleaning.rc }}"
+  #- name: Create index.adoc
+   # shell: (find . "{{ base_path }}{{ root }}"/pages/ -name f  \("{{ indexName }}"\) -exec mv -P {} "{{ base_path }}{{ root }}"/index.adoc \;)
+    #register: indexFile
+  #- debug: msg="{{ indexFile.stdout }}"
 
   - name: Move images to content folder
     shell: (find . "{{ base_path }}{{ root }}"/pages/ -type f \( -iname \*.jpg -o -iname \*.png \) -exec cp -P {} "{{ base_path }}{{ root }}"/images \;) 
@@ -39,14 +34,14 @@
   - debug: msg="{{ images.rc }}"
 
 
-  - name: moving lab docs
-    shell: (find . "{{ base_path }}{{ root }}"/images -type f \( -iname \*.jpg -o -iname \*.png \) -exec rm -P {} \;) 
-    register: docs
-  - debug: msg="{{ cleaning.rc }}"
+ # - name: moving lab docs
+  #  shell: (find . "{{ base_path }}{{ root }}"/images -type f \( -iname \*.jpg -o -iname \*.png \) -exec rm -P {} \;) 
+   # register: docs
+  #- debug: msg="{{ cleaning.rc }}"
 
 
-  - name: Run Antora for adoc and txt files
-    shell: (cd "{{ base_path }}"; antora --fetch antora-playbook.yml)
+  - name: Run Antora for adoc files
+    shell: (antora --fetch antora-playbook.yml)
     register: doc
   - debug: msg="{{ doc.stdout }}"
 
