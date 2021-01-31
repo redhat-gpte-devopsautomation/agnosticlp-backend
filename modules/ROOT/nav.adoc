@@ -1,5 +1,3 @@
-* xref:*[Lab Overview]
-* xref:*[Lab Overview]
 * xref:01_2_Reactive_Programming_Lab.adoc[Lab Overview]
 * xref:01_3_API_Development_Lab.adoc[Lab Overview]
 * xref:02_1_Reactive_Messaging_Lab.adoc[Lab Overview]
