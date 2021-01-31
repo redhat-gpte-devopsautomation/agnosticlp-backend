@@ -5,7 +5,6 @@ content:
   sources:
   - url: https://github.com/redhat-gpte-devopsautomation/agnosticlp-setup.git
     branches: [main]
-    start_page: component::index.adoc
     # setting edit_url to false disables the Edit this Page link for any page that originates from this repository
     # the same thing can be achieved by adding empty credentials (i.e., @) in front of the domain in the URL
 ui:
