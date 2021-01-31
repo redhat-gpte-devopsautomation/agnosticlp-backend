@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   vars:
-    base_path: ../../content/
+    base_path: ../../
     source: pages
     root: modules/ROOT
     destination: build
@@ -41,7 +41,7 @@
 
 
   - name: Run Antora for adoc files
-    shell: (antora --fetch antora-playbook.yml)
+    shell: (cd ../.. ;antora --fetch antora-playbook.yml)
     register: doc
   - debug: msg="{{ doc.stdout }}"
 
