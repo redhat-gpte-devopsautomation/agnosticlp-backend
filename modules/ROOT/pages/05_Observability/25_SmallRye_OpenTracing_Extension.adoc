@@ -1,0 +1,29 @@
+:data-uri:
+:noaudio:
+
+== SmallRye OpenTracing Extension
+
+* SmallRye OpenTracing project provides an implementation of the Microprofile OpenTracing specification
+
+* SmallRye OpenTracing Project website: https://github.com/smallrye/smallrye-opentracing
+
+* Add the smallrye-opentracing extension to your project with the following command:
+
+----
+./mvnw quarkus:add-extension -Dextensions="smallrye-opentracing"
+----
+
+* This will add the following to your pom.xml:
+
+----
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-smallrye-opentracing</artifactId>
+</dependency>
+----
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

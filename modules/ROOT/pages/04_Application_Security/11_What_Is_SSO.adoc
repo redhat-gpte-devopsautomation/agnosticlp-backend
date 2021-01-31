@@ -1,0 +1,17 @@
+:data-uri:
+:noaudio:
+
+== What is SSO?
+
+* allows a user to log into an application using a central authentication and authorization process
+* Red Hat offering of Keycloak
+* Part of Red Hat Runtimes SKU
+
+image::images/sso.png[350,450]
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

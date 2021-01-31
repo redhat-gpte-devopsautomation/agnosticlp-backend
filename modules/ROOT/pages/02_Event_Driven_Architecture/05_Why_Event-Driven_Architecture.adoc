@@ -1,0 +1,19 @@
+:data-uri:
+:noaudio:
+
+== Why Event-driven Architecture? - continued
+
+* Fine-grained scaling
+** Services can be independently scaled up and down to meet the event volume.
+
+* Near real-time latency
+** Customers increasingly expect a near real-time experience. 
+** Polling on APIs is a delicate trade-off between responsiveness and load. EDA allow apps to react in near real-time without compromise.
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

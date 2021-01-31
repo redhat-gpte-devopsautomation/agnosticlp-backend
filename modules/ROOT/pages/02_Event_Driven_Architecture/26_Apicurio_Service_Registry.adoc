@@ -1,0 +1,25 @@
+:data-uri:
+:noaudio:
+
+== Apicurio Service Registry
+
+* The Apicurio Service Registry is a datastore for standard event schemas and API designs
+
+* Supports following data formats:
+** Apache Avro
+** JSON Schema
+** Protobuf (protocol buffers)
+** OpenAPI
+** AsyncAPI
+** GraphQL
+** Kafka Connect Schema
+
+* Apicurio Service Registry can serve as a drop in replacement for Confluent Schema Registry
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

@@ -1,0 +1,28 @@
+:data-uri:
+:noaudio:
+
+== Resiliency Patterns
+
+* Isolation
+** Bulkhead
+** Parameter checking
+** Health endpoint monitoring
+
+* Loose coupling
+** Stateless
+** Idempotency
+** Asynchronous communication
+
+* Latency control
+** Circuit breaker
+** Fail fast
+** Bounded queues
+** Queue-based load leveling
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

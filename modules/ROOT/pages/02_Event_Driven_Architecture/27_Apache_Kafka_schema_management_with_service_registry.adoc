@@ -1,0 +1,19 @@
+:data-uri:
+:noaudio:
+
+== Apache Kafka Schema Management With Service Registry
+
+* Service Registry provides full Kafka schema registry support 
+** Client serializer/deserializer (SerDe) to validate Kafka messages at runtime
+
+* Apicurio Service Registry enables you to create optional rules to govern how registry content can evolve over time 
+** For example, the available registry rule types include content validation and version compatibility 
+
+image::images/slides/kafka-schema-management.png[width=600]
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

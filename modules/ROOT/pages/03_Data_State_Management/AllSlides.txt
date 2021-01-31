@@ -1,0 +1,12 @@
+include::cover.adoc[]
+
+include::02_Data_State_Management_Module_Topics.adoc[]
+include::03_Data_Management_Challenges.adoc[]
+include::04_Data_Management_Challenges_2.adoc[]
+include::05_Data_Management_Challenges_3.adoc[]
+include::06_CDC.adoc[]
+include::07_CDC_Architecture.adoc[]
+include::08_CDC_Change_Event_Structure.adoc[]
+include::09_CDC_Outbox_Pattern.adoc[]
+include::10_Virt_Data_Grid.adoc[]
+include::11_Data_Grid.adoc[]

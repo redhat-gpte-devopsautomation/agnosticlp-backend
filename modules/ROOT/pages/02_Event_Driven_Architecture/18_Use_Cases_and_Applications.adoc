@@ -1,0 +1,34 @@
+:data-uri:
+:noaudio:
+
+== Use Cases And Applications
+
+|===
+|Use Case |Description 
+
+|Web Site Activity Tracker
+|Rebuild user activity tracking pipeline as a set of real-time publish-subscribe feeds. 
+
+|Metrics
+|Aggregation of statistics from distributed applications to produce centralized feeds of operational data.
+
+
+|Log Aggregation
+|Centralized collection of log files in a highly-available store, enabling real-time streaming access to log activity.
+
+
+|Stream Processing
+|Enables continuous, real-time applications built to react to, process, or transform streams.
+
+|Data Integration
+|Captures streams of events or data changes and feeds these to other data systems.
+
+|===
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

@@ -1,0 +1,18 @@
+:data-uri:
+:noaudio:
+
+== Change Data Capture: Outbox Pattern
+
+* Synchronizing data writes (dual)
+* No support for XA within Kafka
+* Create an outbox table
+* Update outbox table after local store update
+* Changes from outbox table propagated by CDC
+* Use of Kafka
+* Eventually consistent
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

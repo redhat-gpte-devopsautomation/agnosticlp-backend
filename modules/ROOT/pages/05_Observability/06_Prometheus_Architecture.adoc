@@ -1,0 +1,31 @@
+:data-uri:
+:noaudio:
+
+== Application Monitoring
+
+.*Prometheus Architecture*
+
+image:images/slides/prometheus_architecture.png[width=600]
+
+
+ifdef::showscript[]
+
+Transcript:
+
+Shown here is a diagram of the Prometheus architecture.
+
+In the center is the core Prometheus server. The Prometheus server can retrieve application monitoring data from different systems via discovery targets. The Prometheus server stores all of the data in a time series database, or TSDB. The server also includes an HTTP server.
+
+On the left side of the diagram, short-lived jobs can push monitoring data to Prometheus when the job exits. The data is sent using the push gateway.
+
+Prometheus can also pull metrics from various jobs and exporters.
+
+In the top center, for service discovery, Prometheus can discover services via Kubernetes or the file system.
+
+On the right side of the screen is the alert manager. If there are any issues or alerts that are identified by Prometheus, such as that the company's web server is down, it can send alerts through various means. There is support for sending alerts to pagers, through email, by text, and so on.
+
+Prometheus also includes a web UI for accessing data in the system.
+
+Prometheus data can be exported to Grafana for visualization. There is also a REST API available for external clients.
+
+endif::showscript[]

@@ -1,0 +1,16 @@
+:data-uri:
+:noaudio:
+
+== OAuth 2.0 Flows
+
+* Authorization code (front & back channel)
+* Implicit (single page app; no back channel)
+* Resource owner password credentials (only back channel)
+* Client credentials (only back channel)
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

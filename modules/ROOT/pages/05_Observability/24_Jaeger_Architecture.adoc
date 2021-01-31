@@ -1,0 +1,24 @@
+:data-uri:
+:noaudio:
+
+== Distributed Tracing
+
+.*Jaeger Architecture*
+
+image:images/slides/jaeger_architecture.png[width=600]
+
+ifdef::showscript[]
+
+Transcript:
+
+Shown here is an architecture diagram of Jaeger.
+
+On the far left is the application code that is created by the developer. The developer can add instrumentation functionality to their application using the OpenTracing API. The application trace reporting is processed by the jaeger-client. The jaeger-client is responsible for sending data to the jaeger-agent using the User Datagram Protocol, or UDP protocol.
+
+The jaeger-agent sends trace reporting data for the main Jaeger server, known as the jaeger-collector. The jaeger-collector has an in-memory queue for the trace data. The jaeger-collector also makes use of adaptive sampling based on Jaeger configurations.
+
+The trace reporting data is stored in a Cassandra data store. The data can also be processed by Apache Spark, which is a big data analytics engine.
+
+Jaeger also provides a user interface for viewing the tracing. An image of the Jaeger UI was shown previously. The Jaeger UI can also query the data store for traces based on custom criteria, such as service name, time period, and others.
+
+endif::showscript[]

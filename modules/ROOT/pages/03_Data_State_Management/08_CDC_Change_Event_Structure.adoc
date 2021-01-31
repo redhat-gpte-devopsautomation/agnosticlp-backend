@@ -1,0 +1,18 @@
+:data-uri:
+:noaudio:
+
+== Change Data Capture: Change Event Structure
+
+* Keyed on primary key of table
+* Value of change event:
+** Before state
+** After state
+** Metadata
+* Serialized as JSON or Avro
+* Also available as CloudEvent
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

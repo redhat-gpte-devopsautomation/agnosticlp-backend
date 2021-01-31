@@ -1,0 +1,19 @@
+:data-uri:
+:noaudio:
+
+== Summary
+
+* Resilient Applications and Patterns
+* Microprofile Fault Tolerance Specification
+* Timeout
+* Retry
+* Fallback
+* Circuit Breaker
+* Bulkhead
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

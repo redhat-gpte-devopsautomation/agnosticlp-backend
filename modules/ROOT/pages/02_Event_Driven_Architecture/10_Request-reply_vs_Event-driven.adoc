@@ -1,0 +1,39 @@
+:data-uri:
+:noaudio:
+
+== Request-reply Vs Event-driven
+
+|===
+|Request-reply |Event-driven 
+
+|Synchronous & ephemeral
+|Asynchronous and persistent
+
+|Low composability
+|Highly composable
+
+|Simplified model
+|Complex model
+
+|Low tolerance to failure
+|High tolerance to failure
+
+|Best practices evolved as REST
+|Best practices are still evolving
+
+|===
+
+image::images/slides/request-reply-vs-event-driven.png[width=600]
+
+ifdef::showscript[]
+
+Transcript:
+
+There are different kinds of treatments for events. Traditional messaging has been used for decades, and has characteristics that work well for transaction-based systems, where specific consumers can act on and acknowledge events as they occur, and producers can guarantee delivery and handle errors as they occur. Traditional messaging systems like Apache Active MQ or RabbitMQ form a set of message exchanges that can be individually configured for different delivery, queueing, and persistence behaviors.
+
+Event streaming on the other hand produces an infinite stream of data from multiple sources, which can be acted upon by stream processing systems like Apache Kafka. These streams of data can also be persisted, and in addition can be “replayed” to new consumers or during a recovery from failure. This depends on the consumer having more “smarts” embedded in it to know where it should start reading from and which messages it has not yet received, but this also means that it can scale much better as the stream system is much simpler than traditional messaging systems.
+
+Deciding which to use depends on the nature of the application, whether it requires transactionality, and the volume of events it is expected to handle. Stream processing can be beneficial, but also has additional complexity in the clients that use it.
+
+
+endif::showscript[]

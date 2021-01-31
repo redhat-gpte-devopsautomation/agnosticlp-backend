@@ -1,0 +1,30 @@
+:data-uri:
+:noaudio:
+
+== Application Monitoring
+
+.Monitoring Solutions
+
+[cols="2",caption=""]
+|====
+|Type
+|Solutions
+|Commercial, closed source
+a|* AppDynamics
+* New Relic
+* Dynatrace
+|Open source
+a|* Prometheus
+* Zabbix
+* Heapster
+|====
+
+ifdef::showscript[]
+
+Transcript:
+
+Commercial, closed source monitoring solutions include AppDynamics, New Relic, and Dynatrace.
+
+Open source monitoring solutions include Prometheus, Zabbix, and Heapster.
+
+endif::showscript[]

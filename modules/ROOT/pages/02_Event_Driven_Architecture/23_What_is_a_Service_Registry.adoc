@@ -1,0 +1,29 @@
+:data-uri:
+:noaudio:
+
+== What Is A Service Registry
+
+* Service Registry is a datastore for standard event schemas and API designs 
+* Service Registry enables enables you to decouple the structure of your data from your applications and to share and manage your data structure using a REST interface 
+** For example, client applications can dynamically push/pull the latest schema updates to/from the registry at runtime without needing to redeploy
+
+* Service Registry enables you to create optional rules to govern how registry content can evolve over time. 
+** For example, the available registry rule types include content validation and version compatibility
+
+* Service Registry also provides full Apache Kafka schema registry support
+** Includes client serializer/deserializer (SerDe) to validate Kafka messages at runtime
+
+* Service Registry is built on the *Apicurio Registry* open source community project. 
+** For details, see https://github.com/apicurio/apicurio-registry.
+
+ifdef::showscript[]
+
+Transcript:
+
+Service Registry is a datastore for standard event schemas and API designs. Service Registry enables enables you to decouple the structure of your data from your applications and to share and manage your data structure using a REST interface. For example, client applications can dynamically push/pull the latest schema updates to/from the registry at runtime without needing to redeploy.
+
+Service Registry enables you to create optional rules to govern how registry content can evolve over time. For example, the available registry rule types include content validation and version compatibility. Service Registry also provides full Apache Kafka schema registry support, client serializer/deserializer (SerDe) to validate Kafka messages at runtime, and compatibility with existing Confluent Schema Registry clients.
+
+Service Registry is built on the Apicurio Registry open source community project. For details, see https://github.com/apicurio/apicurio-registry.
+
+endif::showscript[]

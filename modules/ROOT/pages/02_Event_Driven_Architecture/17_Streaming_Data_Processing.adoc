@@ -1,0 +1,20 @@
+:data-uri:
+:noaudio:
+
+== Event Streaming Data Processing
+
+* Event streaming is the porcessing of data from multiple systems
+* Stateless and Stateful processing
+* Data processing from replayable streams
+
+image::images/slides/stream-data-processing.png[width=600]
+
+ifdef::showscript[]
+
+Transcript:
+
+Many users of Kafka process data in processing pipelines consisting of multiple stages, where raw input data is consumed from Kafka topics and then aggregated, enriched, or otherwise transformed into new topics for further consumption or follow-up processing. 
+
+For example, a processing pipeline for recommending news articles might crawl article content from RSS feeds and publish it to an "articles" topic; further processing might normalize or deduplicate this content and publish the cleansed article content to a new topic; a final processing stage might attempt to recommend this content to users. Such processing pipelines create graphs of real-time data flows based on the individual topics. 
+
+endif::showscript[]

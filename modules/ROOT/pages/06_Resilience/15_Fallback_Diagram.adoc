@@ -1,0 +1,14 @@
+:data-uri:
+:noaudio:
+
+== Fallback Process Diagram
+
+image::images/retry-fallback.png[width=600]
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

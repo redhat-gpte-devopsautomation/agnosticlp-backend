@@ -1,0 +1,17 @@
+:data-uri:
+:noaudio:
+
+== What is OAuth 2.0?
+
+* Created to solve the delegated authorization problem
+* E.g. usecase: Yelp would like access to your Google contacts
+* Based on flows, agreement and scope
+** Scope limits access to contacts
+** Explicit agreement from user
+* End result: user obtains access token
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

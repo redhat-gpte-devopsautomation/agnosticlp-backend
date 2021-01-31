@@ -1,0 +1,28 @@
+:data-uri:
+:noaudio:
+
+== SimplyTimed Code Example
+
+* Collect metrics about latency and throughput of persistence operations.
+----
+    @SimplyTimed(name = "IncidentService.repository", tags = {"operation=create"}, absolute = true)
+    @Transactional
+    public JsonObject create(JsonObject incident) {
+        Incident created = repository.create(toEntity(incident));
+
+        return fromEntity(created);
+    }
+----
+
+* The `name` attribute is the name of the timer, and will also be the name of the metrics produced. 
+
+* The `tags` attribute allow to further subdivide the metrics. 
+
+* The `absolute` attribute determines if the name should be pre-fixed with the class name. if true, the name will not be pre-fixed.
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

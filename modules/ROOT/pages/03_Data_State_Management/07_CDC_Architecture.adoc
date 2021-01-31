@@ -1,0 +1,12 @@
+:data-uri:
+:noaudio:
+
+== Change Data Capture: Example
+
+image::images/cdc-arch.png[]
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

@@ -1,0 +1,37 @@
+:data-uri:
+:noaudio:
+
+== Distributed Tracing
+
+.OpenTracing Specification
+
+* Open standard specification for distributed tracing
+* Defines semantics: What is a trace, what is a span, etc.
+
+* Instrumentation API
+** Official APIs for Java(TM), Go, Ruby
+** Can be used with compatible tracers--e.g., Zipkin, Jaeger
+
+* Hosted at Cloud Native Computing Foundation
+** Not controlled by any company
+
+* Integrations with:
+** Frameworks, stacks, platforms: Quarkus, Spring Boot, MicroProfile, etc.
+** Specifications and services: JAX-RS, JDBC, JMS, etc.
+
+
+ifdef::showscript[]
+
+Transcript:
+
+OpenTracing is an open standard specification for distributed tracing. It defines semantics for what is a trace, what is a span, and so on.
+
+OpenTracing also defines an Instrumentation API. There are official APIs for Java, Go, and Ruby. They can be used with compatible tracers such as Zipkin and Jaeger.
+
+The OpenTracing specification is hosted at the Cloud Native Computing Foundation. It is not controlled by any company.
+
+There are integrations for popular frameworks, stacks, and platforms such as Quarkus, Spring Boot, MicroProfile, and others.
+
+There are also integrations for specifications and services such as Java API for RESTful Web Services, or JAX-RS; Java Database Connectivity, or JDBC; Java Message Service, or JMS; and others.
+
+endif::showscript[]

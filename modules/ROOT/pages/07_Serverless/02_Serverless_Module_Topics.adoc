@@ -1,0 +1,19 @@
+:data-uri:
+:noaudio:
+
+== Module Topics for Serverless
+
+* What is Knative?
+* Knative Serving
+* Serving: building blocks
+* Knative Eventing
+* CloudEvents
+* Knative Eventing - usage patterns
+* Quarkus and Knative
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

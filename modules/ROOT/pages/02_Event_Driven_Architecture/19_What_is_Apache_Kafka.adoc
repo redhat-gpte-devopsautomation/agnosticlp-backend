@@ -1,0 +1,32 @@
+:data-uri:
+:noaudio:
+
+== What Is Apache Kafka?
+
+* Apache Kafka is a distributed system designed for streams 
+** It is built to be an horizontally-scalable and fault-tolerant
+** Allows distributed data streams and stream processing applications
+
+* Kafka has three key capabilities:
+** Publish and subscribe to streams of records, similar to a message queue or enterprise messaging system
+** Store streams of records in a fault-tolerant durable way
+** Process streams of records as they occur
+
+image::images/slides/kafka-logo.png[width=200]
+
+ifdef::showscript[]
+
+Transcript:
+
+Apache Kafka is a distributed streaming platform. It is built to be an horizontally-scalable and fault-tolerant. Kafka allows distributed data streams and stream processing applications
+
+The Kafka streaming platform has three key capabilities:
+
+* Publish and subscribe to streams of records, similar to a message queue or enterprise messaging system.
+- Store streams of records in a fault-tolerant durable way.
+- Process streams of records as they occur.
+
+Kafka is generally used for two broad classes of applications:
+- Building real-time streaming data pipelines that reliably get data between - systems or applications
+- Building real-time streaming applications that transform or react to the streams of data
+endif::showscript[]

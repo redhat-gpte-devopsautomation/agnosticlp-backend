@@ -1,0 +1,16 @@
+:data-uri:
+:noaudio:
+
+== Module Topics
+
+* Events
+* Event Driven Services
+* Event Stream Processing
+* Service Registry
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

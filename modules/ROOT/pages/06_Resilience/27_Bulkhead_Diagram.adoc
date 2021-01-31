@@ -1,0 +1,13 @@
+:data-uri:
+:noaudio:
+
+== Bulkhead Diagram
+
+image::images/bulkhead.png[width=600]
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

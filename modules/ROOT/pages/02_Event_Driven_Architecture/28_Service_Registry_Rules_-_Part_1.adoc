@@ -1,0 +1,29 @@
+:data-uri:
+:noaudio:
+
+== Service Registry Rules
+
+* Validation Rules
+** Artifact must have valid content or server will reject it
+** Can check for valid syntax
+** Can also check for valid semantics (for some artifact types)
+
+* Compatibility Rules
+** Determines whether an update is allowed based on configured compatibility requirement setting.
+** Multiple compatibility options including Backwards and Forwards compatible
+** Only relevant for updates (checks the new version against the previous version)
+** Controls the evolution of a single Artifact over time
+
+
+ifdef::showscript[]
+
+Transcript:
+
+To govern content evolution, you can configure optional rules for artifacts added to the registry, as a post-installation step. All rules configured for an artifact must pass before a new artifact version can be uploaded to the registry. The goal of these rules is to prevent invalid content from being added to the registry. For example, content can be invalid for the following reasons:
+
+Invalid syntax for a given artifact type (for example, AVRO or PROTOBUF)
+Valid syntax, but semantics violate company standards
+New content includes breaking changes to the current artifact version
+
+
+endif::showscript[]

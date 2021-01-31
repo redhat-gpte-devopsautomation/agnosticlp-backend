@@ -1,0 +1,19 @@
+:data-uri:
+:noaudio:
+
+== Knative Serving
+
+* Concerned with deployment of serverless containers
+* Uses Kubernetes and Istio services
+* Areas of focus
+** Rapid deployment of serverless containers
+** Automatic scaling up and down to zero
+** Routing and network programming for Istio components
+** Point-in-time snapshots of deployed code and configurati
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

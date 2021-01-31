@@ -1,0 +1,20 @@
+:data-uri:
+:noaudio:
+
+== Data State Management: Challenges & Solutions Part III
+
+* Design of communication across microservice boundaries
+** Style of messaging
+** Level of coupling
+** REST API preferred
+** Chains of HTTP invocations problematic
+** Failure of one service has cascading effects
+** Aysnchronous approach preferred
+*** Async message and event based approach
+*** HTTP polling independent of the original HTTP request/response cycle
+
+ifdef::showscript[]
+
+Transcript:
+
+endif::showscript[]

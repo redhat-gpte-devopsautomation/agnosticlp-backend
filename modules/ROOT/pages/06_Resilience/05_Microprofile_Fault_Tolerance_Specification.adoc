@@ -1,0 +1,21 @@
+:data-uri:
+:noaudio:
+
+== Microprofile Fault Tolerance Specification
+
+* Microprofile Fault Tolerance specification defines an easy to use and flexible system for building resilient applications.
+
+* Focus on the following aspects
+** Timeout: Define a duration for timeout
+** Retry: Define a criteria on when to retry
+** Fallback: provide an alternative solution for a failed execution.
+** CircuitBreaker: offer a way of fail fast by automatically failing execution to prevent the system overloading and indefinite wait or timeout by the clients.
+** Bulkhead: isolate failures in part of the system while the rest part of the system can still function.
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

@@ -1,0 +1,26 @@
+:data-uri:
+:noaudio:
+
+== Bulkhead Code Example - Thread Pool Style
+
+* Execution happens on a separate thread and the concurrent requests are confined in a fixed number of a thread pool.
+
+----
+   @Asynchronous
+   @Bulkhead(value = 5, waitingTaskQueue = 10)
+   ​public String callRemoteService() {
+        // call a remote service
+        // it may fail
+   ​}
+----
+
+* In this example, we specify a maximum of 5 concurrent calls to an instance. The thread pool has fixed size 10.
+
+* When using the thread pool approach, when a request cannot be added to the waiting queue, BulkheadException will be thrown.
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

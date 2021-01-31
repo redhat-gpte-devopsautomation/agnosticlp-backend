@@ -1,0 +1,17 @@
+:data-uri:
+:noaudio:
+
+== Circuit Breaker
+
+* Cascading Failures
+
+image::images/circuit_breaker_cascading_failures_slowdown.png[width=600]
+
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

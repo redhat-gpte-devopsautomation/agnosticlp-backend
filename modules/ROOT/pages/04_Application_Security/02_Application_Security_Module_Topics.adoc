@@ -1,0 +1,21 @@
+:data-uri:
+:noaudio:
+
+== Application Security Module Topics
+
+* Cloud-native security concerns
+* Origin security
+** Authentication
+** Authorization
+* OAuth 2.0
+* OIDC
+* RH-SSO
+
+image::images/centr-authn.png[350,450]
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

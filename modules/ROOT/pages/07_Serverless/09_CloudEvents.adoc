@@ -1,0 +1,31 @@
+:data-uri:
+:noaudio:
+
+== CloudEvents
+
+* Event data specification for Knative eventing
+* Provides interoperability across services, platforms and systems
+* Work done by the CNCF serverless working group
+* SDKs available for Go, JavaScript, Java, C#, Ruby, and Python
+* Used to build event routers and tracing systems
+* CloudEvent serialized as JSON:
+----
+{
+    "specversion" : "1.x-wip",
+    "type" : "com.github.pull_request.opened",
+    "source" : "https://github.com/cloudevents/spec/pull",
+    "subject" : "123",
+    "id" : "A234-1234-1234",
+    "time" : "2018-04-05T17:31:00Z",
+    "comexampleextension1" : "value",
+    "comexampleothervalue" : 5,
+    "datacontenttype" : "text/xml",
+    "data" : "<much wow=\"xml\"/>"
+}
+----
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

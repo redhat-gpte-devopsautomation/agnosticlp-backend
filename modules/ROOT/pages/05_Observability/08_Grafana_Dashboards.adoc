@@ -1,0 +1,28 @@
+:data-uri:
+:noaudio:
+
+== Application Monitoring
+
+.Grafana Dashboards
+
+[.noredheader,cols="2",caption=""]
+|====
+a|* Grafana dashboards hold collection of graphs and charts
+* Grafana simplifies:
+** Constructing proper queries
+** Customizing display properties to create dashboard to meet needs 
+* Dashboard components can interact with data from any configured data source
+|image:images/slides/grafana_dashboard.png[width=600]
+|====
+
+ifdef::showscript[]
+
+Transcript:
+
+Grafana has dashboards that can hold a collection of graphs and charts.
+
+Grafana makes it easy to construct the right queries and customize the display properties so that you can create the dashboard that best meets your needs.
+
+The dashboard components can interact with data from any configured data source.
+
+endif::showscript[]

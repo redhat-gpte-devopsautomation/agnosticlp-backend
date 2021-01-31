@@ -1,0 +1,21 @@
+:data-uri:
+:noaudio:
+
+== Fallback Configuration
+
+Following configuration options are available for @Fallback
+
+* applyOn: The list of exception types which should trigger Fallback
+
+* skipOn: The list of exception types which should not trigger Fallback
+
+* fallbackMethod: Specify the method name to be fallbacked to.
+
+* value: Specify the fallback class to be used.
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

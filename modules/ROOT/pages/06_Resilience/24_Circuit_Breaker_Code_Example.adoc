@@ -1,0 +1,28 @@
+:data-uri:
+:noaudio:
+
+== Circuit Breaker Code Example
+
+* Apply Circuit Breaker annotation to source code
+
+----
+    @CircuitBreaker(requestVolumeThreshold = 4, delay = 1000, successThreshold = 10)
+   ​public String callRemoteService() {
+        // call a remote service
+        // it may fail
+   ​}
+----
+
+* In this example, the circuit breaker is closed or working normally, and we use a rolling window of the last 4 requests.
+
+* If there is a failure past threshold, then the circuit will stay open, rejecting all subsequent requests for 1000ms.
+
+* After the delay, circuit is placed in half-open state. Will attempt to make 10 consecutive successful calls before going back to closed state (success).
+
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]

@@ -1,0 +1,27 @@
+:data-uri:
+:noaudio:
+
+== Circuit Breaker Configuration
+
+Following configuration options are available for @CircuitBreaker
+
+* delay: The delay after which an open circuit will transitions to half-open state.
+
+* delayUnit: the unit of measure, ChonoUnit.SECONDS, .MINUTES etc
+
+* failOn: The list of exception types which should be considered failures
+
+* failureRatio: The ratio of failures within the rolling window that will trip the circuit to open.
+
+* requestVolumeThreshold: The number of consecutive requests in a rolling window that will trip the circuit.
+
+* skipOn: The list of exception types which should not be considered failures
+
+* successThreshold: For an open circuit, after the delay period is reached, once the successThreshold is reached, the circuit is back to close again.
+
+ifdef::showscript[]
+
+Transcript:
+
+
+endif::showscript[]
