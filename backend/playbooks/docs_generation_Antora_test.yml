@@ -11,9 +11,9 @@
   tasks:
 
   - name: git commit
-    shell: git commit -a -m "'{{ git_msg }}'"
+    shell: git add "{{ root }}"; git commit -a -m "'{{ git_msg }}'"
 
   - name: git push
-    shell: git add "{{ root }}"; git push --force
+    shell: git push --force
 
 
