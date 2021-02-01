@@ -8,6 +8,8 @@
 
 === Set Up Local Workstation
 
+Your guid is vale
+
 The labs of this course are to be performed on your local workstation and on an OpenShift cluster.
 
 The instructions in the labs have been written on a Linux workstation. However they should work on a Mac too. None of the instructions have been tested on Windows, and they are not expected to work. If you have a Windows workstation, please install a Linux virtual machine to do the labs.
