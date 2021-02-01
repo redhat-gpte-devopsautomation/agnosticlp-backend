@@ -6,7 +6,7 @@ touch $nav_file
 for f in $path/*; do
   file="$(basename -- $f)"
   echo "file $f"
-  title= title="$(grep -e "== " $f -m 1 | sed 's/.*== //')"
+  title="$(grep -e "== " $f -m 1 | sed 's/.*== //')"
   echo "title $title"
   echo "* xref:$file[$title]" >>  $nav_file 
 done

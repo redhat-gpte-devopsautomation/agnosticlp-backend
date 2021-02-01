@@ -22,7 +22,7 @@
   tasks:
   
   - name: Download source code from repo
-    shell: (git clone "{{ path_origin }}" "{{ path_tmp }}"; mv temp/.git code/.git)
+    shell: (mkdir "{{ path_tmp }}";git clone "{{ path_origin }}" "{{ path_tmp }}"; mv temp/.git code/.git)
     register: download
     failed_when: download.rc == "already exists and is not an empty directory" not in download.rc
     when: "{{ updateRepo == 'Y' }}"
@@ -41,10 +41,11 @@
     when: "{{ updateRepo == 'Y' }}"
 
   - name: Move image folder
-    shell: (mkdir "{{ build_images_path }}images"; mv "{{ build_images_path }}*.png" "{{ build_images_path }}images/") 
+    shell: (rm -rf ../../build/site/content/1/_images/images/; mkdir ../../build/site/content/1/_images/images/; mv ../../build/site/content/1/_images/*.png ../../build/site/content/1/_images/images/)  
     register: move
     failed_when: move.rc == "File exists" not in move.rc
-    
+    when: "{{ updateRepo == 'Y' }}"
+
   - name: create nav adoc file
     shell:  (sh nav.sh)
 
@@ -55,4 +56,8 @@
     shell: (cd ../.. ;antora --fetch antora-playbook.yml)
     register: doc
   - debug: msg="{{ doc.stdout }}"
+
+  - name: Cleaning after finishing
+    shell: (rm -rf "{{ path_tmp }}")
+
 
