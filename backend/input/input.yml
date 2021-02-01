@@ -6,7 +6,7 @@ assets:
       - "10080:10080"
   - name: content
     method: source
-    source: ../../content/output
+    source: ../../build/site/content/1
     ports:
       - "8080:80"
     dockerFile: ../docker_files/Dockerfile

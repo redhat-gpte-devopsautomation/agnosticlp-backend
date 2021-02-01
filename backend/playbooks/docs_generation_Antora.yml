@@ -5,7 +5,6 @@
     source: pages
     root: modules/ROOT
     destination: build
-    path_origin: https://github.com/redhat-gpe/cnd_advanced_v2
     git_msg: "Generated content"
     path_tmp: tmp
   vars_prompt:
@@ -14,7 +13,10 @@
       private: no
     - name: updateRepo
       prompt: Do you need to download your repo? Y/N
-      private: no  
+      private: no
+    - name: path_origin
+      prompt: Provide your content repository URL.Ex. https://github.com/redhat-gpe/example
+      private: no 
   
   tasks:
   
