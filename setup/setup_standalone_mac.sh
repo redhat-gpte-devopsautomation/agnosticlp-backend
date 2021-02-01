@@ -5,3 +5,5 @@ ansible --version
 ansible-galaxy collection install community.general
 brew install asciidoctor
 asciidoctor --version
+npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
+antora -v
