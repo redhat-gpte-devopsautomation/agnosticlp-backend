@@ -8,7 +8,7 @@
 
 === Set Up Local Workstation
 
-Your guid is %guid%
+Your guid is vale
 
 The labs of this course are to be performed on your local workstation and on an OpenShift cluster.
 
