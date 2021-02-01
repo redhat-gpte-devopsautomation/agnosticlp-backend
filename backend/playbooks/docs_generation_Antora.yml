@@ -29,7 +29,7 @@
     when: "{{ updateRepo == 'Y' }}"
   
   - name: Create index.adoc
-    shell:  (find "{{ base_path }}{{ root }}/pages" -name "{{ indexName }}" -exec mv {} "{{ base_path }}{{ root }}/index.adoc" \;)
+    shell:  (find "{{ base_path }}{{ root }}/pages" -name "{{ indexName }}" -exec mv {} "{{ base_path }}{{ root }}/pages/index.adoc" \;)
 
   - name: Move images to content folder
     shell: (find . "{{ base_path }}{{ root }}"/pages/ -type f \( -iname \*.jpg -o -iname \*.png \) -exec cp -P {} "{{ base_path }}{{ root }}"/images \;) 
