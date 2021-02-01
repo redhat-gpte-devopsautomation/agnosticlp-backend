@@ -1,7 +1,12 @@
 path='../../modules/ROOT/pages'
-result=''
-touch ../../modules/ROOT/nav.adoc
+nav_file="../../modules/ROOT/nav.adoc"
+rm -f $nav_file
+touch $nav_file
+
 for f in $path/*; do
   file="$(basename -- $f)"
-  echo "* xref:$file[Lab Overview]" >>  ../../modules/ROOT/nav.adoc  
+  echo "file $f"
+  title= title="$(grep -e "== " $f -m 1 | sed 's/.*== //')"
+  echo "title $title"
+  echo "* xref:$file[$title]" >>  $nav_file 
 done
