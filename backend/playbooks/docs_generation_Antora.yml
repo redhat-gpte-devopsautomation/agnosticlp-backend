@@ -49,6 +49,14 @@
   - name: create nav adoc file
     shell:  (sh nav.sh)
 
+  - name: Env variables substitution
+    ansible.builtin.replace:
+      path: "{{ base_path }}{{ root }}/{{ source }}/index.adoc"
+      regexp: '%guid%'
+      replace: "{{ lookup('env', 'guid') }}" 
+    register: replace
+  - debug: msg="{{ replace }}"
+
   - name: Updating content in the repository (Antora)
     shell: (rootPath=`pwd`;git add $rootPath/../../"{{ root }}"; git commit -m "{{ git_msg }}"; git push)
 
