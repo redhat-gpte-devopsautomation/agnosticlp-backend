@@ -1,5 +1,5 @@
 site:
-  title: RHTR 2020 - From Jenkins to Tekton
+  title: Adv. Cloud Native Development
   # the 404 page and sitemap files only get generated when the url property is set
 content:
   sources:
