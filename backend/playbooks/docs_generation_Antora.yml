@@ -2,6 +2,7 @@
   connection: local
   vars:
     base_path: ../../
+    build_images_path: ../../build/site/content/1/_images/
     source: pages
     root: modules/ROOT
     destination: build
@@ -39,6 +40,11 @@
   - debug: msg="{{ images.rc }}"
     when: "{{ updateRepo == 'Y' }}"
 
+  - name: Move image folder
+    shell: (mkdir "{{ build_images_path }}images"; mv "{{ build_images_path }}*.png" "{{ build_images_path }}images/") 
+    register: move
+    failed_when: move.rc == "File exists" not in move.rc
+    
   - name: create nav adoc file
     shell:  (sh nav.sh)
 
