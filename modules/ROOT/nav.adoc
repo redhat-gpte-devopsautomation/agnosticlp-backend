@@ -10,3 +10,4 @@
 * xref:05_2_Distributed_Tracing_Lab.adoc[Distributed Tracing Lab]
 * xref:06_1_Resilience_Lab.adoc[Resiliency Lab]
 * xref:07_1_Serverless_Lab.adoc[Serverless Applications Lab]
+* xref:index.adoc[Lab Environment]
