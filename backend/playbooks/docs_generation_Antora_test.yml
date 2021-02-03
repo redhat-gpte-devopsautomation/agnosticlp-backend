@@ -7,13 +7,20 @@
     destination: build
     path_origin: https://github.com/redhat-gpe/cnd_advanced_v2
     git_msg: "Generated content"
+    path_tmp: tmp
+    indexName: 01_1_Environment_Setup_Lab.adoc
+    build_images_path: ../../build/site/content/1/_images/
 
   tasks:
 
-  - name: git commit
-    shell: git add "{{ root }}"; git commit -a -m "'{{ git_msg }}'"
+  - name: Before Ansible 2.3, option 'dest', 'destfile' or 'name' was used instead of 'path'
+    ansible.builtin.replace:
+      path: "{{ base_path }}{{ root }}/{{ source }}/"
+      #regexp: ^([%]).*\1$'
+      regexp: '%guid%'
+      replace: "{{ lookup('env', 'guid') }}" 
+    register: replace
+  - debug: msg="{{ replace }}"
 
-  - name: git push
-    shell: git push --force
 
 
