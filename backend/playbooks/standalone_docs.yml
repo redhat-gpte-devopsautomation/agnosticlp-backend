@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   vars_files:
-    - ../input/input.yml
+    - ../input/backend.yml
   vars_prompt:
   - name: username
     prompt: What is your Quay's username?
@@ -34,8 +34,7 @@
       username: "{{ username }}" 
       password: "{{ password }}"
       config_path: /tmp/.mydockercfg
-    register: login
-  - debug: msg="{{ login.stdout }}"
+    register: r_docker_login
 
   - name: copy Dockerfile
     copy:
@@ -45,25 +44,23 @@
   - name: Get infos on container
     community.docker.docker_container_info:
       name: "{{ container_name }}"
-    register: result
-  - debug: msg="{{ result.stdout }}"
+    register: r_info_container
 
   - name: Does container exist?
     ansible.builtin.debug:
-      msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
+      msg: "The container {{ 'exists' if r_info_container.exists else 'does not exist' }}"
 
   - name: Stop the container if exists before creation
     community.general.docker_container:
       name: "{{ container_name }}"
       state: absent
       force_kill: yes
-    when: "{{ result.exists }}"
+    when: "{{ r_info_container.exists }}"
 
   - name: Remove image
     shell: (docker image rm "{{ image_registry_path }}")
-    register: remove
-    failed_when: remove.rc == "No such" not in remove.stdout
-  - debug: msg="{{ remove.stdout }}"
+    register: r_remove_old_image
+    failed_when: r_remove_old_image.rc == "No such" not in r_remove_old_image.stdout
 
   - name: Build the content image
     community.general.docker_image:
@@ -74,8 +71,8 @@
       push: yes
       source: build
     when: "{{ assets[1].method == 'source' }}"
-    register: build
-  - debug: msg="{{ build.stdout }}"
+    register: r_build_iamge
+  - debug: msg="{{ r_build_iamge.stdout }}"
 
   - name: Create the content container
     community.general.docker_container:
@@ -84,6 +81,5 @@
       pull: yes
       ports:
        - "{{ assets[1].ports[0] }}"
-      register: create
-  - debug: msg="{{ create.stdout }}"
+    register: r_run_container
       
