@@ -32,6 +32,8 @@
       state: absent
       force_kill: yes
     when: "{{ result.exists }}"
+    register: stop
+  - debug: msg="{{ stop }}"
 
   - name: Remove image
     command: docker image rm "{{ image_registry_path }}"
@@ -46,6 +48,8 @@
       name: "{{ image_registry_path }}"
       push: yes
       source: build
+    register: build
+  - debug: msg="{{ buil }}"
   
   - name: Create the frontend container
     community.general.docker_container:
@@ -54,5 +58,7 @@
       pull: yes
       ports:
        - "80:80"
+    register: create
+  - debug: msg="{{ create }}"
 
        

@@ -25,6 +25,9 @@
       state: absent
       force_kill: yes
     when: "{{ result.exists }}"
+    register: stop
+  - debug: msg="{{ stop }}"   
+
 
   - name: Create the terminal container
     community.general.docker_container:
@@ -32,3 +35,5 @@
       image: "{{ assets[0].source }}"
       ports:
        - "{{ assets[0].ports[0] }}"
+    register: create
+  - debug: msg="{{ create }}"

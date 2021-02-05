@@ -34,6 +34,8 @@
       username: "{{ username }}" 
       password: "{{ password }}"
       config_path: /tmp/.mydockercfg
+    register: login
+  - debug: msg="{{ login.stdout }}"
 
   - name: copy Dockerfile
     copy:
@@ -44,6 +46,7 @@
     community.docker.docker_container_info:
       name: "{{ container_name }}"
     register: result
+  - debug: msg="{{ result.stdout }}"
 
   - name: Does container exist?
     ansible.builtin.debug:
@@ -71,6 +74,8 @@
       push: yes
       source: build
     when: "{{ assets[1].method == 'source' }}"
+    register: build
+  - debug: msg="{{ build.stdout }}"
 
   - name: Create the content container
     community.general.docker_container:
@@ -79,3 +84,6 @@
       pull: yes
       ports:
        - "{{ assets[1].ports[0] }}"
+      register: create
+  - debug: msg="{{ create.stdout }}"
+      

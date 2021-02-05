@@ -32,29 +32,38 @@
     register: download
     failed_when: download.rc == "already exists and is not an empty directory" not in download.rc
     when: "{{ updateRepo == 'Y' }}"
+  - debug: msg="{{ download.stdout }}"
 
   - name: Clean root folders if needed.
     shell: (rm -rf "{{ base_path }}{{ root }}/pages" ; rm -rf "{{ base_path }}{{ root }}"/images/)
     register: create
     failed_when: create.rc == "already exists" not in create.rc
     when: "{{ updateRepo == 'Y' }}"
+  - debug: msg="{{ updateRepo.stdout }}"
 
   - name: Create root folders if needed.
     shell: (mkdir "{{ base_path }}{{ root }}/pages"; mkdir "{{ base_path }}{{ root }}/images/")
-    register: create
-    failed_when: create.rc == "already exists" not in create.rc
+    register: root
+    failed_when: root.rc == "already exists" not in root.rc
     when: "{{ updateRepo == 'Y' }}"
+  - debug: msg="{{ root.stdout }}"
 
   - name: moving lab docs
     shell: (find . "{{ path_tmp }}/{{ content_path }}" -type f \( -iname \*_Lab.adoc  \) -exec cp -P {} "{{ base_path }}{{ root }}/pages/" \;)
     when: "{{ updateRepo == 'Y'}} and {{ match_content == 'L'}}"
+    register: labs
+  - debug: msg="{{ labs }}"
 
   - name: moving all docs
     shell: (find  "{{ path_tmp }}/{{ content_path }}" -type f \( -iname \*.adoc  \) -exec cp -P {} "{{ base_path }}{{ root }}/pages/" \;)
     when: "{{ updateRepo == 'Y'}} and {{ match_content == 'A'}}"
+    register: docs
+  - debug: msg="{{ docs }}"
   
   - name: Create index.adoc
     shell:  (find "{{ base_path }}{{ root }}/pages" -name "{{ indexName }}" -exec mv {} "{{ base_path }}{{ root }}/pages/index.adoc" \;)
+    register: index
+  - debug: msg="{{ index }}"
 
   - name: Move images to content folder
     shell: (find . "{{ base_path }}{{ root }}"/pages/ -type f \( -iname \*.jpg -o -iname \*.png \) -exec cp -P {} "{{ base_path }}{{ root }}"/images \;) 
@@ -85,3 +94,4 @@
     shell: (mkdir ../../build/site/content/1/_images/images/; mv ../../build/site/content/1/_images/*.png ../../build/site/content/1/_images/images/)
     register: move
     failed_when: move.rc == "File exists" not in move.rc
+  - debug: msg="{{ move }}"
