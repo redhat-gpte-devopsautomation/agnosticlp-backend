@@ -20,26 +20,25 @@
   - name: Get infos on container
     community.docker.docker_container_info:
       name: "{{ container_name }}"
-    register: result
+    register: r_info_container
 
   - name: Does container exist?
     ansible.builtin.debug:
-      msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
+      msg: "The container {{ 'exists' if r_info_container.exists else 'does not exist' }}"
 
   - name: Stop the container if exists before creation
     community.general.docker_container:
       name: "{{ container_name }}"
       state: absent
       force_kill: yes
-    when: "{{ result.exists }}"
-    register: stop
-  - debug: msg="{{ stop }}"
+    when: "{{ r_info_container.exists }}"
+    register: r_stop_container
 
   - name: Remove image
     command: docker image rm "{{ image_registry_path }}"
-    register: remove
-    failed_when: remove.rc == "No such" not in remove.stdout
-  - debug: msg="{{ remove.stdout }}"
+    register: r_remove_image
+    failed_when: r_remove_image.rc == "No such" not in r_remove_image.stdout
+  - debug: msg="{{ r_remove_image.stdout }}"
 
   - name: Build the frontend image
     community.general.docker_image:
@@ -48,8 +47,7 @@
       name: "{{ image_registry_path }}"
       push: yes
       source: build
-    register: build
-  - debug: msg="{{ buil }}"
+    register: r_build_image
   
   - name: Create the frontend container
     community.general.docker_container:
@@ -58,7 +56,7 @@
       pull: yes
       ports:
        - "80:80"
-    register: create
-  - debug: msg="{{ create }}"
+    register: r_create_container
+  - debug: msg="{{ r_create_container }}"
 
        

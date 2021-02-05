@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   vars_files:
-    - ../input/input.yml
+    - ../input/backend.yml
   vars:
     container_name: "terminal"
   tasks:
