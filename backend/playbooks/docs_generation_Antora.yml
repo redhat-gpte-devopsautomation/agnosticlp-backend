@@ -29,46 +29,40 @@
   
   - name: Download source code from repo
     shell: (rm -rf "{{ path_tmp }}"; mkdir "{{ path_tmp }}";git clone "{{ path_origin }}" "{{ path_tmp }}"; mv temp/.git code/.git)
-    register: download
-    failed_when: download.rc == "already exists and is not an empty directory" not in download.rc
+    register: r_download_sourcecode
+    failed_when: r_download_sourcecode.rc == "already exists and is not an empty directory" not in r_download_sourcecode.rc
     when: "{{ updateRepo == 'Y' }}"
-  - debug: msg="{{ download.stdout }}"
 
   - name: Clean root folders if needed.
     shell: (rm -rf "{{ base_path }}{{ root }}/pages" ; rm -rf "{{ base_path }}{{ root }}"/images/)
-    register: create
-    failed_when: create.rc == "already exists" not in create.rc
+    register: r_clean_folders
+    failed_when: r_clean_folders.rc == "already exists" not in r_clean_folders.rc
     when: "{{ updateRepo == 'Y' }}"
-  - debug: msg="{{ updateRepo.stdout }}"
 
   - name: Create root folders if needed.
     shell: (mkdir "{{ base_path }}{{ root }}/pages"; mkdir "{{ base_path }}{{ root }}/images/")
-    register: root
-    failed_when: root.rc == "already exists" not in root.rc
+    register: r_create_root
+    failed_when: r_create_root.rc == "already exists" not in r_create_root.rc
     when: "{{ updateRepo == 'Y' }}"
-  - debug: msg="{{ root.stdout }}"
 
   - name: moving lab docs
     shell: (find . "{{ path_tmp }}/{{ content_path }}" -type f \( -iname \*_Lab.adoc  \) -exec cp -P {} "{{ base_path }}{{ root }}/pages/" \;)
+    register: r_move_labs_docs
     when: "{{ updateRepo == 'Y'}} and {{ match_content == 'L'}}"
-    register: labs
-  - debug: msg="{{ labs }}"
 
   - name: moving all docs
     shell: (find  "{{ path_tmp }}/{{ content_path }}" -type f \( -iname \*.adoc  \) -exec cp -P {} "{{ base_path }}{{ root }}/pages/" \;)
+    register: r_move_all_docs
     when: "{{ updateRepo == 'Y'}} and {{ match_content == 'A'}}"
-    register: docs
-  - debug: msg="{{ docs }}"
   
   - name: Create index.adoc
     shell:  (find "{{ base_path }}{{ root }}/pages" -name "{{ indexName }}" -exec mv {} "{{ base_path }}{{ root }}/pages/index.adoc" \;)
-    register: index
-  - debug: msg="{{ index }}"
+    register: r_create_index
 
   - name: Move images to content folder
     shell: (find . "{{ base_path }}{{ root }}"/pages/ -type f \( -iname \*.jpg -o -iname \*.png \) -exec cp -P {} "{{ base_path }}{{ root }}"/images \;) 
-    register: images
-  - debug: msg="{{ images.rc }}"
+    register: r_move_images
+  - debug: msg="{{ r_move_images.rc }}"
     when: "{{ updateRepo == 'Y' }}"
 
   - name: create nav adoc file
@@ -79,19 +73,16 @@
       path: "{{ base_path }}{{ root }}/{{ source }}/index.adoc"
       regexp: '%guid%'
       replace: "{{ lookup('env', 'guid') }}" 
-    register: replace
-  - debug: msg="{{ replace }}"
+    register: r_env_variables
 
   - name: Updating content in the repository (Antora)
     shell: (rootPath=`pwd`;git add ../../"{{ root }}/"; git commit -m "{{ git_msg }}"; git push)
 
   - name: Run Antora for adoc files
     shell: (rm -rf ../../build/site/content/1/;cd ../.. ;antora --fetch antora-playbook.yml)
-    register: doc
-  - debug: msg="{{ doc.stdout }}"
+    register: r_run_antora
 
   - name: Move image folder
     shell: (mkdir ../../build/site/content/1/_images/images/; mv ../../build/site/content/1/_images/*.png ../../build/site/content/1/_images/images/)
-    register: move
-    failed_when: move.rc == "File exists" not in move.rc
-  - debug: msg="{{ move }}"
+    register: r_move_image
+    failed_when: r_move_image.rc == "File exists" not in r_move_image.rc
